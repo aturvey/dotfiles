@@ -6,25 +6,26 @@
 #
 
 ##  Session alias statements 
-alias la='gls -a --color'
-alias ll='gls -l --color'
-alias lla='gls -la --color'
-alias llr='gls -lrt --color'
+alias ls='ls --color '
+alias la='ls --color -a'
+alias ll='ls --color -l'
+alias lla='ls --color -la'
+alias llr='ls --color -lrt'
 alias du='du -k'
 alias df='df -k'
 #function em() { xemacs 2>/dev/null "$@" & }
+alias em='emacs'
 alias where='echo $HOST'
+alias term='konsole &'
+alias ff='/usr/bin/firefox &'
+alias tb='thunderbird &'
 alias cp='cp -ip'
 alias cls='clear'
 alias mv='mv -i'
 alias pu='pushd'
 alias po='popd'
-
-## a few mac specific helpers
-alias sha1sum='shasum -a 1'
-alias sha256sum='shasum -a 256'
-alias md5sum='md5'
-alias vim='/usr/local/bin/vim'
-
-## alias for managing dotfile configuration
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias hp='~/Free42Linux/free42dec'
+alias sbc='java -jar /home/aturvey/bin/SoundBridgeCommander.jar'
+alias cds='~/eagle-5.11.0/bin/eagle &'
+alias vnc='vncviewer &'
+alias dropbox='~/bin/dropbox.py'
