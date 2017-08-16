@@ -54,7 +54,7 @@ highlight StatusLineNC              guifg=#303030 ctermfg=234  guibg=#949494 cte
 
 highlight Normal                    guifg=#9e9e9e ctermfg=247  guibg=#000000 ctermbg=0
 highlight Cursor                    guifg=#000000 ctermfg=0    guibg=#FFFFFF ctermbg=160
-highlight CursorLine                guibg=#000000 ctermbg=234  cterm=NONE
+highlight CursorLine                guibg=#000000 ctermbg=233  cterm=NONE
 
 highlight Comment                   guifg=#00d7ff ctermfg=45   gui=italic
 highlight Constant                  guifg=#6D9CBE ctermfg=73
@@ -105,8 +105,13 @@ highlight SpellRare                 guifg=#D75F87 ctermfg=168 guibg=NONE ctermbg
 highlight SpellCap                  guifg=#D0D0FF ctermfg=189 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 highlight MatchParen                guifg=#FFFFFF ctermfg=15 guibg=#005f5f ctermbg=23
 
-highlight TabLineFill               ctermfg=238   ctermbg=0
-highlight TabLine                   ctermfg=100   ctermbg=238
-highlight TabLineSel                ctermfg=226   ctermbg=238
-highlight Title                     ctermfg=white   ctermbg=238
+"highlight TabLineFill               ctermfg=238   ctermbg=0
+highlight TabLineFill               ctermfg=0   ctermbg=0
+"highlight TabLine                   ctermfg=100   ctermbg=238
+highlight TabLine                   ctermfg=100   ctermbg=0
+"highlight TabLineSel                ctermfg=226   ctermbg=238 cterm=underline
+highlight TabLineSel                ctermfg=226   ctermbg=0 cterm=underline
+"highlight Title                     ctermfg=100   ctermbg=238 cterm=underline
+highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
+
 
