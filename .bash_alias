@@ -28,3 +28,5 @@ alias vim='/usr/local/bin/vim'
 
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias foo='echo hello world'
