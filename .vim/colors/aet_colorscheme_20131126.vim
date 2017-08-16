@@ -38,7 +38,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "aet_colorscheme_20131126"
+let g:colors_name = "aet_colortheme_20131126"
 
 hi link htmlTag                     xmlTag
 hi link htmlTagName                 xmlTagName
@@ -61,7 +61,8 @@ highlight Constant                  guifg=#6D9CBE ctermfg=73
 highlight Define                    guifg=#CC7833 ctermfg=173
 highlight Error                     guifg=#FFC66D ctermfg=221  guibg=#990000 ctermbg=88
 highlight Function                  guifg=#87ff00 ctermfg=118  gui=NONE cterm=NONE
-highlight Identifier                guifg=#6D9CBE ctermfg=73   gui=NONE cterm=NONE
+"highlight Identifier                guifg=#6D9CBE ctermfg=73   gui=NONE cterm=NONE
+highlight Identifier                guifg=#6D9CBE ctermfg=255   gui=NONE cterm=NONE
 highlight Include                   guifg=#d7ff87 ctermfg=192  gui=NONE cterm=NONE
 "highlight PreCondit                 guifg=#CC7833 ctermfg=173  gui=NONE cterm=NONE
 highlight Keyword                   guifg=#5fd75f ctermfg=77  cterm=NONE
@@ -102,13 +103,3 @@ highlight SpellBad                  guifg=#D70000 ctermfg=160 ctermbg=NONE cterm
 highlight SpellRare                 guifg=#D75F87 ctermfg=168 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 highlight SpellCap                  guifg=#D0D0FF ctermfg=189 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 highlight MatchParen                guifg=#FFFFFF ctermfg=15 guibg=#005f5f ctermbg=23
-
-"highlight TabLineFill               ctermfg=238   ctermbg=0
-highlight TabLineFill               ctermfg=0   ctermbg=0
-"highlight TabLine                   ctermfg=100   ctermbg=238
-highlight TabLine                   ctermfg=100   ctermbg=0
-"highlight TabLineSel                ctermfg=226   ctermbg=238 cterm=underline
-highlight TabLineSel                ctermfg=226   ctermbg=0 cterm=underline
-"highlight Title                     ctermfg=100   ctermbg=238 cterm=underline
-highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
-

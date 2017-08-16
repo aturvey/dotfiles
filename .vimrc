@@ -87,9 +87,9 @@ if &term =~ '^screen'
 endif
 
 
-" the colorscheme.vim files are supposed to go into ~/.vim/color
+" the colorscheme.vim files are supposed to go into ~/.vim/colors
 set t_Co=256
-color aet_colorscheme_20131126
+color aet_colorscheme_20170623
 " highlight Normal ctermbg=Black
 " highlight Normal guibg=black
  
@@ -233,7 +233,7 @@ inoremap jk <esc>
 nnoremap <leader>ev :vsplit! $MYVIMRC<cr>
 nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
 nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
-nnoremap <leader>rv :source $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " maps to enclose in quotes, parens, brackets, etc  BAD IDEA BECAUSE THESE ARE USED
 " nnoremap <leader>" bi"<esc>ea"<esc>
@@ -373,7 +373,7 @@ nnoremap <leader>vz :VimuxZoomRunner<cr>
 set clipboard=unnamed
 
 nnoremap <leader>q :q<cr>
-nnoremap <leader>w :w<cr>
+nnoremap <leader>ww :w<cr>
 
 " this is for vim decrement function, deconflict with hextoggle function
 nnoremap <c-b> <c-x>
