@@ -1,4 +1,4 @@
-version 6.0
+version 6.0 
 
 " execute pathogen#infect()
 " call pathogen#helptags()
@@ -18,6 +18,7 @@ call vundle#begin()
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-sleuth'
+    Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
@@ -87,9 +88,9 @@ if &term =~ '^screen'
 endif
 
 
-" the colorscheme.vim files are supposed to go into ~/.vim/colors
+" the colorscheme.vim files are supposed to go into ~/.vim/color
 set t_Co=256
-color aet_colorscheme_20170623
+color aet_colorscheme_20170623 
 " highlight Normal ctermbg=Black
 " highlight Normal guibg=black
  
@@ -98,12 +99,12 @@ set linebreak
 set textwidth=0
 set wrapmargin=0
 set sidescroll=1
-set scrolloff=3    " minimum of three lines above and below cursor
+set scrolloff=2    " minimum of three lines above and below cursor
 
 " Searching
 set ignorecase              " case insensitive searching
 set smartcase               " case-sensitive if expresson contains a capital letter
-set hlsearch                " highlight search results
+set hlsearch                " highlight search resultf
 set incsearch               " set incremental search, like modern browsers
 set nolazyredraw            " don't redraw while executing macros
 " clear highlighted search
@@ -123,8 +124,8 @@ nmap <leader>. <c-^>
 nnoremap <leader>i :set cursorline!<cr>
 
 " scroll the viewport faster
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>" get rid of the toolbar in gvim
+nnoremap <C-e> 4<C-e>
+nnoremap <C-y> 4<C-y>
 
 " gvim toolbar and scrollbar off
 set guioptions-=T  " turn off the toolbar
@@ -156,49 +157,23 @@ nnoremap _ -
 nnoremap = >
 " vertical window size decrease
 nnoremap - <
-"nnoremap <leader>wh <c-w>h
-"nnoremap <leader>wl <c-w>l
-"nnoremap <leader>wj <c-w>j
-"nnoremap <leader>wk <c-w>k
-
-" nnoremap <leader>wc <c-w>c
-" nnoremap <leader>wo <c-w>o
-" nnoremap <leader>wx <c-w>x
-" nnoremap <leader>wp <c-w>p
-" nnoremap <leader>ws <c-w>s
-" nnoremap <leader>wv <c-w>v 
-" nnoremap <leader>wf <c-w>f 
-" nnoremap <leader>wT <c-w>T 
+nnoremap <leader>wc <c-w>c
+nnoremap <leader>wo <c-w>o
+nnoremap <leader>wx <c-w>x
+nnoremap <leader>wp <c-w>p
+nnoremap <leader>ws <c-w>s
+nnoremap <leader>wv <c-w>v 
+nnoremap <leader>wT <c-w>T 
 map <silent> <C-h> :call functions#WinMove('h')<cr>
 map <silent> <C-j> :call functions#WinMove('j')<cr>
 map <silent> <C-k> :call functions#WinMove('k')<cr>
 map <silent> <C-l> :call functions#WinMove('l')<cr>
-" nnoremap <leader>w<left> <c-w>h 
-" nnoremap <leader>w<right> <c-w>l
-" nnoremap <leader>w<down> <c-w>j
-" nnoremap <leader>w<up> <c-w>k 
-" nnoremap <c-h> <c-w>h
-" vnoremap <c-h> <c-w>h
-" nnoremap <c-l> <c-w>l
-" vnoremap <c-l> <c-w>l
-" nnoremap <c-j> <c-w>j
-" vnoremap <c-j> <c-w>j
-" nnoremap <c-k> <c-w>k
-" vnoremap <c-k> <c-w>k
 " " changes a vertical split to a horizontal split
-nnoremap <leader>w- <c-w>t<c-w>K 
+" nnoremap <leader>w- <c-w>t<c-w>K 
 " changes a horizontal split to a vertical split
-nnoremap <leader>w\ <c-w>t<c-w>H 
+" nnoremap <leader>w\ <c-w>t<c-w>H 
 "nnoremap <leader>w| <c-w>t<c-w>H 
-nnoremap <leader>w/ <c-w>t<c-w>H 
-" nnoremap <silent> <c-Left> <c-w><
-" vnoremap <silent> <c-Left> <c-w><
-" nnoremap <silent> <c-Right> <c-w>>
-" vnoremap <silent> <c-Right> <c-w>>
-" nnoremap <silent> <c-Up> <c-w>+
-" vnoremap <silent> <c-Up> <c-w>+
-" nnoremap <silent> <c-Down> <c-w>-
-" vnoremap <silent> <c-Down> <c-w>-
+" nnoremap <leader>w/ <c-w>t<c-w>H 
 
 
 set hidden
@@ -231,6 +206,7 @@ inoremap jk <esc>
 
 " this is a mapping to edit and source (read) the .vimrc file
 nnoremap <leader>ev :vsplit! $MYVIMRC<cr>
+nnoremap <leader>ec :vsplit! ~/.vim/colors/aet_colorscheme_20170623.vim<cr>
 nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
 nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -334,7 +310,7 @@ let g:netrw_winsize = 85
    nnoremap <silent> <C-Down> :execute 'silent! tabmove -1'<CR>
 
 " change pwd to that of currently edited file, and print where we ended up
-" nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
  
 " remap for T-Comment, not sure why the norecursive map doesn't work here
 nmap <leader>t <c-_><c-_>
@@ -362,7 +338,9 @@ set foldlevel=1
 
 
 " vimux mappings -- only works when in tmux session
-nnoremap <leader>v  :VimuxRunCommand(" clear ; date ")<cr>
+nnoremap <leader>vv :VimuxRunCommand(" clear ; gcc -Wall -g -std=c99 -o test test.c ")<cr>
+nnoremap <leader>vg :VimuxRunCommand(" clear ; gcc -Wall -g -std=c99 -o test test.c ")<cr>
+nnoremap <leader>vt :VimuxRunCommand(" clear ; ctags *.c *.h")<cr>
 nnoremap <leader>vr :VimuxRunLastCommand<cr>
 nnoremap <leader>vc :VimuxPromptCommand<cr>
 nnoremap <leader>vx :VimuxCloseRunner<cr>
@@ -375,7 +353,5 @@ set clipboard=unnamed
 nnoremap <leader>q :q<cr>
 nnoremap <leader>ww :w<cr>
 
-" this is for vim decrement function, deconflict with hextoggle function
 nnoremap <c-b> <c-x>
-
 
