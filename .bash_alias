@@ -6,26 +6,21 @@
 #
 
 ##  Session alias statements 
-alias ls='ls --color '
-alias la='ls --color -a'
-alias ll='ls --color -l'
-alias lla='ls --color -la'
-alias llr='ls --color -lrt'
+alias ls='ls --color'
+alias la='ls -a --color'
+alias ll='ls -l --color'
+alias lla='ls -la --color'
+alias llr='ls -lrt --color'
 alias du='du -k'
 alias df='df -k'
 #function em() { xemacs 2>/dev/null "$@" & }
-alias em='emacs'
 alias where='echo $HOST'
-alias term='konsole &'
-alias ff='/usr/bin/firefox &'
-alias tb='thunderbird &'
 alias cp='cp -ip'
 alias cls='clear'
 alias mv='mv -i'
 alias pu='pushd'
 alias po='popd'
-alias hp='~/Free42Linux/free42dec'
-alias sbc='java -jar /home/aturvey/bin/SoundBridgeCommander.jar'
-alias cds='~/eagle-5.11.0/bin/eagle &'
-alias vnc='vncviewer &'
-alias dropbox='~/bin/dropbox.py'
+
+## alias for managing dotfile configuration
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
