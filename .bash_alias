@@ -11,6 +11,7 @@ alias la='ls -a --color'
 alias ll='ls -l --color'
 alias lla='ls -la --color'
 alias llr='ls -lrt --color'
+alias llar='ls -lart --color'
 alias du='du -k'
 alias df='df -k'
 #function em() { xemacs 2>/dev/null "$@" & }
