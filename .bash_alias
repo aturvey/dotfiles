@@ -10,6 +10,7 @@ alias la='gls -a --color'
 alias ll='gls -l --color'
 alias lla='gls -la --color'
 alias llr='gls -lrt --color'
+alias llar='gls -lart --color'
 alias du='du -k'
 alias df='df -k'
 #function em() { xemacs 2>/dev/null "$@" & }
