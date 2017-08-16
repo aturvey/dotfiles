@@ -1,0 +1,16 @@
+#
+# File: .bindings
+#   Bindings and Autocomplete definitions for .cshrc file
+#
+# Created on: Fri Nov 25 19:46:14 2005
+#
+
+##  Emacs (-e) or Vim (-v) command key bindings
+#bindkey -v
+bindkey -e
+#bindkey ^[. set-mark-command
+
+##  Autocompletion (lists ambiguous completions, up to 10 lines)
+unset autolist 
+# set autolist = ambiguous
+set listmaxrows = 10
