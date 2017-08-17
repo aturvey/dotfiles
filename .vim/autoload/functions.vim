@@ -53,3 +53,18 @@ function! functions#ToggleHex()
   let &modifiable=l:oldmodifiable
 endfunction
 
+" function helper for ultisnips, I have not idea what it does. But see
+" c.snippets file: snippet 'once'
+fun! functions#Filename(...)
+    let template = get(a:000, 0, "$1")
+    let arg2 = get(a:000, 1, "")
+
+    let basename = expand('%:t:r')
+
+    if basename == ''
+        return arg2
+    else
+        return substitute(template, '$1', basename, 'g')
+    endif
+endf
+

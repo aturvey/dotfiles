@@ -1,8 +1,5 @@
 version 6.0
 
-" execute pathogen#infect()
-" call pathogen#helptags()
-
 " set up plugins using Vundle
 " get help with :h vundle
 "   :PluginList
@@ -17,11 +14,14 @@ call vundle#begin()
     Plugin 'gmarik/Vundle.vim'     " this is required
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-sleuth'
     Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'scrooloose/nerdtree'
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
+    Plugin 'justinmk/vim-sneak'
+    Plugin 'sjl/gundo.vim'
+    Plugin 'sirver/ultisnips'
 call vundle#end()
 filetype plugin indent on
 
@@ -50,7 +50,7 @@ let mapleader=","
 noremap \ ,
 " let maplocalleader="\\"
 
-" Note, you can find out the following guifont string by :set guifont? 
+" Note, you can find out the following guifont string by :set guifont?
 set guifont=MiscFixed\ 14
 "set guioptions=aegimLt
 
@@ -71,7 +71,7 @@ set window=33
 
 set laststatus=2
 
-" need to let vim get xterm escape sequences for page and arrow 
+" need to let vim get xterm escape sequences for page and arrow
 " keys when running under tmux or gnu screen. echo $TERM to see
 " what terminal we're working in... depends on bash or tmux
 if &term =~ '^screen'
@@ -93,7 +93,7 @@ set t_Co=256
 color aet_colorscheme
 " highlight Normal ctermbg=Black
 " highlight Normal guibg=black
- 
+
 set nowrap
 set linebreak
 set textwidth=0
@@ -104,7 +104,7 @@ set scrolloff=2    " minimum of three lines above and below cursor
 " Searching
 set ignorecase              " case insensitive searching
 set smartcase               " case-sensitive if expresson contains a capital letter
-set hlsearch                " highlight search resultf
+set nohlsearch              " highlight search resultf
 set incsearch               " set incremental search, like modern browsers
 set nolazyredraw            " don't redraw while executing macros
 " clear highlighted search
@@ -120,16 +120,18 @@ set expandtab      " insert 'softtabstop' spaces for a tab
 " switch between current and last buffer
 nmap <leader>. <c-^>
 
-" scroll the viewport faster
-nnoremap <C-e> 4<C-e>
-nnoremap <C-y> 4<C-y>
+" scroll the viewport and cursor
+set scroll=3
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
 
 " gvim toolbar and scrollbar off
 set guioptions-=T  " turn off the toolbar
 set guioptions-=r  " turn off the right side scroll bar
 
 " we prefer numbered lines
-set number numberwidth=3
+set number relativenumber numberwidth=3
 
 " map Y to y$ (yank to end of line)
 map Y y$
@@ -159,78 +161,34 @@ nnoremap - <
 " nnoremap <leader>wx <c-w>x
 " nnoremap <leader>wp <c-w>p
 " nnoremap <leader>ws <c-w>s
-" nnoremap <leader>wv <c-w>v 
-" nnoremap <leader>wT <c-w>T 
+" nnoremap <leader>wv <c-w>v
+" nnoremap <leader>wT <c-w>T
 map <silent> <C-h> :call functions#WinMove('h')<cr>
 map <silent> <C-j> :call functions#WinMove('j')<cr>
 map <silent> <C-k> :call functions#WinMove('k')<cr>
 map <silent> <C-l> :call functions#WinMove('l')<cr>
+" map <silent> ˙ :call functions#WinMove('h')<cr>
+" map <silent> ∆ :call functions#WinMove('j')<cr>
+" map <silent> ˚ :call functions#WinMove('k')<cr>
+" map <silent> ¬ :call functions#WinMove('l')<cr>
 " " changes a vertical split to a horizontal split
-" nnoremap <leader>w- <c-w>t<c-w>K 
+" nnoremap <leader>w- <c-w>t<c-w>K
 " changes a horizontal split to a vertical split
-" nnoremap <leader>w\ <c-w>t<c-w>H 
-"nnoremap <leader>w| <c-w>t<c-w>H 
-" nnoremap <leader>w/ <c-w>t<c-w>H 
-
+" nnoremap <leader>w\ <c-w>t<c-w>H
+"nnoremap <leader>w| <c-w>t<c-w>H
+" nnoremap <leader>w/ <c-w>t<c-w>H
 
 set hidden
 
-" map kk, jj, jk, and kj to <esc> to easily bail out of insert or visual mode 
+" map jk to <esc> to easily bail out of insert or visual mode
 inoremap jk <esc>
-" vnoremap jk <esc> 
-" inoremap kj <esc>
-" vnoremap kj <esc>
-" inoremap kk <esc>
-" inoremap ll <esc>
-" vnoremap kk <esc>
-" inoremap jj <esc>
-" vnoremap jj <esc>
-
-" map <space> to toggle fold (not ready for this advanced stuff yet)
-" nnoremap <space> za
-
-" set mappings to move current line up or down in text
-"nnoremap - ddp
-"nnoremap _ ddkP
-
-" mapping to uppercase an entire word
-" nnoremap <c-u> mvviwU`v
-" inoremap <c-u> <esc>mvviwU`va
-
-" mapping to lowercase an entire word (except it doesn't work so well on single characters)
-" nnoremap <c-u> mvviw~`v
-" inoremap <c-u> <esc>mvviw~`va
 
 " this is a mapping to edit and source (read) the .vimrc file
 nnoremap <leader>ev :vsplit! $MYVIMRC<cr>
-nnoremap <leader>ec :vsplit! ~/.vim/colors/aet_colorscheme_20170623.vim<cr>
+nnoremap <leader>ec :vsplit! ~/.vim/colors/aet_colorscheme.vim<cr>
 nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
 nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" maps to enclose in quotes, parens, brackets, etc  BAD IDEA BECAUSE THESE ARE USED
-" nnoremap <leader>" bi"<esc>ea"<esc>
-" nnoremap <leader>' bi'<esc>ea'<esc>
-" nnoremap <leader>) bi(<esc>ea)<esc>
-" nnoremap <leader>] bi[<esc>ea]<esc>
-" nnoremap <leader>} bi{<esc>ea}<esc>
-" nnoremap <leader>> bi<<esc>ea><esc>
-
-" map H and L to beginning and end of line, better than 0 and $
-nnoremap H 0
-vnoremap H 0
-" nnoremap <c-h> ^
-" vnoremap <c-h> ^
-nnoremap L $
-vnoremap L $
-"nnoremap <c-l> g_
-" vnoremap <c-l> g_
-
-" map these to help move around while in insert mode
-" inoremap <c-j> <Down>
-" inoremap <c-k> <Up>
-" inoremap <c-h> <Left>
-" inoremap <c-l> <Right>
 
 " this lets me scroll the screen (not cursor) when in normal mode
 " nnoremap <c-j> <c-e>
@@ -240,17 +198,8 @@ vnoremap L $
 onoremap in( :<c-u>normal!f(vi(<cr>
 onoremap il( :<c-u>normal!F)vi(<cr>
 
-" some macro mappings to emulate what I've been using in emacs previously
-nnoremap <F6> qe
-nnoremap <F7> q
-nnoremap <F8> @e
-
 " this makes the tab completion work more sensibly
 set  wildmode=longest,list
-
-" from Practical Vim: a mapping to quickly turn off search highlight and refresh the screen
-" nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
-nnoremap <silent> <a-l> :<c-u>nohlsearch<cr><c-l>
 
 " from Practical Vim: search for visual selected text
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
@@ -280,18 +229,16 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
 " from a website I found, does a dialog when :w, :q, :only, etc
 set confirm
 
-" for Gundo plugin, see vimcast 
+" for Gundo plugin, see vimcast
 nnoremap <F5> :GundoToggle<CR>
-
-set scroll=4
 
 " ex command for toggling hex mode - define mapping if desired
 command! -bar Hexmode call ToggleHex()
 
 " toggle hex mode (see .vim/autoload/functions.vim)
 nnoremap <c-x> :functions#Hexmode<CR>
-inoremap <c-x> <esc>:functions#Hexmode<CR>
-vnoremap <c-u> :<c-u>functions#Hexmode<CR>
+" inoremap <c-x> <esc>:functions#Hexmode<CR>
+" vnoremap <c-u> :<c-u>functions#Hexmode<CR>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -308,12 +255,12 @@ let g:netrw_winsize = 85
 
 " change pwd to that of currently edited file, and print where we ended up
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
- 
+
 " remap for T-Comment, not sure why the norecursive map doesn't work here
 nmap <leader>t <c-_><c-_>
 vmap <leader>t <c-_><c-_>
 
-" remap for NERDTree
+" toggle NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
 
 " this is a way to highlight the line with present cursor position
@@ -331,7 +278,7 @@ inoremap {<CR>  {<CR><BS>}<Esc>O
 set foldmethod=syntax       " fold based on indent
 set foldnestmax=10          " deepest fold is 10 levels
 set nofoldenable            " don't fold by default
-set foldlevel=1             
+set foldlevel=1
 
 
 " vimux mappings -- only works when in tmux session
@@ -350,5 +297,31 @@ set clipboard=unnamed
 nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
 
+" remap ctrl-b to decrement under cursor
 nnoremap <c-b> <c-x>
 
+" ctrlP configuration
+nnoremap <leader>fu :CtrlPFunky<cr>
+nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+
+" show or trim trailing white space
+nnoremap <silent> <F9> :/\s\+$<CR>
+nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+" add gundo binding
+nnoremap <F5> :GundoToggle<cr>
+
+" sneak bindings
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+" let g:sneak#label = 1
+
+" some ultisnip configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsEditSplit="<vertical>"
+let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
+" let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
