@@ -90,7 +90,7 @@ endif
 
 " the colorscheme.vim files are supposed to go into ~/.vim/color
 set t_Co=256
-color aet_colorscheme_20170623 
+color aet_colorscheme
 " highlight Normal ctermbg=Black
 " highlight Normal guibg=black
  
