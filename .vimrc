@@ -1,7 +1,4 @@
-version 6.0 
-
-" execute pathogen#infect()
-" call pathogen#helptags()
+version 6.0
 
 " set up plugins using Vundle
 " get help with :h vundle
@@ -52,7 +49,7 @@ let mapleader=","
 noremap \ ,
 " let maplocalleader="\\"
 
-" Note, you can find out the following guifont string by :set guifont? 
+" Note, you can find out the following guifont string by :set guifont?
 set guifont=MiscFixed\ 14
 "set guioptions=aegimLt
 
@@ -73,7 +70,7 @@ set window=33
 
 set laststatus=2
 
-" need to let vim get xterm escape sequences for page and arrow 
+" need to let vim get xterm escape sequences for page and arrow
 " keys when running under tmux or gnu screen. echo $TERM to see
 " what terminal we're working in... depends on bash or tmux
 if &term =~ '^screen'
@@ -95,7 +92,7 @@ set t_Co=256
 color aet_colorscheme
 " highlight Normal ctermbg=Black
 " highlight Normal guibg=black
- 
+
 set nowrap
 set linebreak
 set textwidth=0
@@ -161,25 +158,25 @@ nnoremap - <
 " nnoremap <leader>wx <c-w>x
 " nnoremap <leader>wp <c-w>p
 " nnoremap <leader>ws <c-w>s
-" nnoremap <leader>wv <c-w>v 
-" nnoremap <leader>wT <c-w>T 
+" nnoremap <leader>wv <c-w>v
+" nnoremap <leader>wT <c-w>T
 map <silent> <C-h> :call functions#WinMove('h')<cr>
 map <silent> <C-j> :call functions#WinMove('j')<cr>
 map <silent> <C-k> :call functions#WinMove('k')<cr>
 map <silent> <C-l> :call functions#WinMove('l')<cr>
 " " changes a vertical split to a horizontal split
-" nnoremap <leader>w- <c-w>t<c-w>K 
+" nnoremap <leader>w- <c-w>t<c-w>K
 " changes a horizontal split to a vertical split
-" nnoremap <leader>w\ <c-w>t<c-w>H 
-"nnoremap <leader>w| <c-w>t<c-w>H 
-" nnoremap <leader>w/ <c-w>t<c-w>H 
+" nnoremap <leader>w\ <c-w>t<c-w>H
+"nnoremap <leader>w| <c-w>t<c-w>H
+" nnoremap <leader>w/ <c-w>t<c-w>H
 
 
 set hidden
 
-" map kk, jj, jk, and kj to <esc> to easily bail out of insert or visual mode 
+" map kk, jj, jk, and kj to <esc> to easily bail out of insert or visual mode
 inoremap jk <esc>
-" vnoremap jk <esc> 
+" vnoremap jk <esc>
 " inoremap kj <esc>
 " vnoremap kj <esc>
 " inoremap kk <esc>
@@ -282,7 +279,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
 " from a website I found, does a dialog when :w, :q, :only, etc
 set confirm
 
-" for Gundo plugin, see vimcast 
+" for Gundo plugin, see vimcast
 nnoremap <F5> :GundoToggle<CR>
 
 set scroll=4
@@ -310,7 +307,7 @@ let g:netrw_winsize = 85
 
 " change pwd to that of currently edited file, and print where we ended up
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
- 
+
 " remap for T-Comment, not sure why the norecursive map doesn't work here
 nmap <leader>t <c-_><c-_>
 vmap <leader>t <c-_><c-_>
@@ -333,7 +330,7 @@ inoremap {<CR>  {<CR><BS>}<Esc>O
 set foldmethod=syntax       " fold based on indent
 set foldnestmax=10          " deepest fold is 10 levels
 set nofoldenable            " don't fold by default
-set foldlevel=1             
+set foldlevel=1
 
 
 " vimux mappings -- only works when in tmux session
@@ -358,3 +355,7 @@ nnoremap <c-b> <c-x>
 " ctrlP configuration
 nnoremap <leader>fu :CtrlPFunky<cr>
 nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+
+" show or trim trailing white space
+nnoremap <silent> <F9> :/\s\+$<CR>
+nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
