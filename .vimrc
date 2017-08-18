@@ -1,7 +1,4 @@
-version 6.0 
-
-" execute pathogen#infect()
-" call pathogen#helptags()
+version 6.0
 
 " set up plugins using Vundle
 " get help with :h vundle
@@ -19,9 +16,11 @@ call vundle#begin()
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-sleuth'
     Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'scrooloose/nerdtree'
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
+    Plugin 'justinmk/vim-sneak'
 call vundle#end()
 filetype plugin indent on
 
@@ -50,7 +49,7 @@ let mapleader=","
 noremap \ ,
 " let maplocalleader="\\"
 
-" Note, you can find out the following guifont string by :set guifont? 
+" Note, you can find out the following guifont string by :set guifont?
 set guifont=MiscFixed\ 14
 "set guioptions=aegimLt
 
@@ -71,7 +70,7 @@ set window=33
 
 set laststatus=2
 
-" need to let vim get xterm escape sequences for page and arrow 
+" need to let vim get xterm escape sequences for page and arrow
 " keys when running under tmux or gnu screen. echo $TERM to see
 " what terminal we're working in... depends on bash or tmux
 if &term =~ '^screen'
@@ -90,10 +89,10 @@ endif
 
 " the colorscheme.vim files are supposed to go into ~/.vim/color
 set t_Co=256
-color aet_colorscheme_20170623 
+color aet_colorscheme
 " highlight Normal ctermbg=Black
 " highlight Normal guibg=black
- 
+
 set nowrap
 set linebreak
 set textwidth=0
@@ -120,9 +119,6 @@ set expandtab      " insert 'softtabstop' spaces for a tab
 " switch between current and last buffer
 nmap <leader>. <c-^>
 
-" toggle cursor line
-nnoremap <leader>i :set cursorline!<cr>
-
 " scroll the viewport faster
 nnoremap <C-e> 4<C-e>
 nnoremap <C-y> 4<C-y>
@@ -132,7 +128,7 @@ set guioptions-=T  " turn off the toolbar
 set guioptions-=r  " turn off the right side scroll bar
 
 " we prefer numbered lines
-set number numberwidth=3
+set number relativenumber numberwidth=3
 
 " map Y to y$ (yank to end of line)
 map Y y$
@@ -150,37 +146,37 @@ set list
 
 " some helper maps for split screen control
 " horizontal window size increase
-nnoremap + +
+nnoremap <c-+> +
 " horizontal window size decrease
-nnoremap _ -
+nnoremap <c-_> -
 " vertical window size increase
 nnoremap = >
 " vertical window size decrease
 nnoremap - <
-nnoremap <leader>wc <c-w>c
-nnoremap <leader>wo <c-w>o
-nnoremap <leader>wx <c-w>x
-nnoremap <leader>wp <c-w>p
-nnoremap <leader>ws <c-w>s
-nnoremap <leader>wv <c-w>v 
-nnoremap <leader>wT <c-w>T 
+" nnoremap <leader>wc <c-w>c
+" nnoremap <leader>wo <c-w>o
+" nnoremap <leader>wx <c-w>x
+" nnoremap <leader>wp <c-w>p
+" nnoremap <leader>ws <c-w>s
+" nnoremap <leader>wv <c-w>v
+" nnoremap <leader>wT <c-w>T
 map <silent> <C-h> :call functions#WinMove('h')<cr>
 map <silent> <C-j> :call functions#WinMove('j')<cr>
 map <silent> <C-k> :call functions#WinMove('k')<cr>
 map <silent> <C-l> :call functions#WinMove('l')<cr>
 " " changes a vertical split to a horizontal split
-" nnoremap <leader>w- <c-w>t<c-w>K 
+" nnoremap <leader>w- <c-w>t<c-w>K
 " changes a horizontal split to a vertical split
-" nnoremap <leader>w\ <c-w>t<c-w>H 
-"nnoremap <leader>w| <c-w>t<c-w>H 
-" nnoremap <leader>w/ <c-w>t<c-w>H 
+" nnoremap <leader>w\ <c-w>t<c-w>H
+"nnoremap <leader>w| <c-w>t<c-w>H
+" nnoremap <leader>w/ <c-w>t<c-w>H
 
 
 set hidden
 
-" map kk, jj, jk, and kj to <esc> to easily bail out of insert or visual mode 
+" map kk, jj, jk, and kj to <esc> to easily bail out of insert or visual mode
 inoremap jk <esc>
-" vnoremap jk <esc> 
+" vnoremap jk <esc>
 " inoremap kj <esc>
 " vnoremap kj <esc>
 " inoremap kk <esc>
@@ -220,12 +216,12 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " nnoremap <leader>> bi<<esc>ea><esc>
 
 " map H and L to beginning and end of line, better than 0 and $
-nnoremap H 0
-vnoremap H 0
+" nnoremap H 0
+" vnoremap H 0
 " nnoremap <c-h> ^
 " vnoremap <c-h> ^
-nnoremap L $
-vnoremap L $
+" nnoremap L $
+" vnoremap L $
 "nnoremap <c-l> g_
 " vnoremap <c-l> g_
 
@@ -283,7 +279,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
 " from a website I found, does a dialog when :w, :q, :only, etc
 set confirm
 
-" for Gundo plugin, see vimcast 
+" for Gundo plugin, see vimcast
 nnoremap <F5> :GundoToggle<CR>
 
 set scroll=4
@@ -311,16 +307,16 @@ let g:netrw_winsize = 85
 
 " change pwd to that of currently edited file, and print where we ended up
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
- 
+
 " remap for T-Comment, not sure why the norecursive map doesn't work here
 nmap <leader>t <c-_><c-_>
 vmap <leader>t <c-_><c-_>
 
-" remap for NERDTree
+" toggle NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
 
 " this is a way to highlight the line with present cursor position
-set cursorline
+set nocursorline
 nnoremap <leader>l :set cursorline!<CR>
 
 " turn on some auto indent features for c programming
@@ -334,7 +330,7 @@ inoremap {<CR>  {<CR><BS>}<Esc>O
 set foldmethod=syntax       " fold based on indent
 set foldnestmax=10          " deepest fold is 10 levels
 set nofoldenable            " don't fold by default
-set foldlevel=1             
+set foldlevel=1
 
 
 " vimux mappings -- only works when in tmux session
@@ -351,7 +347,15 @@ nnoremap <leader>vz :VimuxZoomRunner<cr>
 set clipboard=unnamed
 
 nnoremap <leader>q :q<cr>
-nnoremap <leader>ww :w<cr>
+nnoremap <leader>w :w<cr>
 
+" remap ctrl-b to decrement under cursor
 nnoremap <c-b> <c-x>
 
+" ctrlP configuration
+nnoremap <leader>fu :CtrlPFunky<cr>
+nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+
+" show or trim trailing white space
+nnoremap <silent> <F9> :/\s\+$<CR>
+nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>

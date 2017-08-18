@@ -38,7 +38,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "aet_colorscheme_20170623"
+let g:colors_name = "aet_colorscheme"
 
 hi link htmlTag                     xmlTag
 hi link htmlTagName                 xmlTagName
