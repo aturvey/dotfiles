@@ -19,9 +19,11 @@ call vundle#begin()
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-sleuth'
     Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'scrooloose/nerdtree'
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
+    Plugin 'justinmk/vim-sneak'
 call vundle#end()
 filetype plugin indent on
 
@@ -129,7 +131,7 @@ set guioptions-=T  " turn off the toolbar
 set guioptions-=r  " turn off the right side scroll bar
 
 " we prefer numbered lines
-set number numberwidth=3
+set number relativenumber numberwidth=3
 
 " map Y to y$ (yank to end of line)
 map Y y$
@@ -147,9 +149,9 @@ set list
 
 " some helper maps for split screen control
 " horizontal window size increase
-nnoremap + +
+nnoremap <c-+> +
 " horizontal window size decrease
-nnoremap _ -
+nnoremap <c-_> -
 " vertical window size increase
 nnoremap = >
 " vertical window size decrease
@@ -217,12 +219,12 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " nnoremap <leader>> bi<<esc>ea><esc>
 
 " map H and L to beginning and end of line, better than 0 and $
-nnoremap H 0
-vnoremap H 0
+" nnoremap H 0
+" vnoremap H 0
 " nnoremap <c-h> ^
 " vnoremap <c-h> ^
-nnoremap L $
-vnoremap L $
+" nnoremap L $
+" vnoremap L $
 "nnoremap <c-l> g_
 " vnoremap <c-l> g_
 
@@ -313,7 +315,7 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <leader>t <c-_><c-_>
 vmap <leader>t <c-_><c-_>
 
-" remap for NERDTree
+" toggle NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
 
 " this is a way to highlight the line with present cursor position
@@ -350,5 +352,9 @@ set clipboard=unnamed
 nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
 
+" remap ctrl-b to decrement under cursor
 nnoremap <c-b> <c-x>
 
+" ctrlP configuration
+nnoremap <leader>fu :CtrlPFunky<cr>
+nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
