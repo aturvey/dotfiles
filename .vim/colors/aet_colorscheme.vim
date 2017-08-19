@@ -114,4 +114,8 @@ highlight TabLineSel                ctermfg=226   ctermbg=0 cterm=underline
 "highlight Title                     ctermfg=100   ctermbg=238 cterm=underline
 highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
 
+" highlight Pmenu                     ctermfg=136 ctermbg=0
+highlight Pmenu                     ctermfg=55 ctermbg=0
+" highlight PmenuSel                  ctermfg=136 ctermbg=0 cterm=bold
+highlight PmenuSel                  ctermfg=15 ctermbg=0 cterm=bold
 

@@ -21,6 +21,7 @@ call vundle#begin()
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
     Plugin 'justinmk/vim-sneak'
+    Plugin 'sjl/gundo.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -202,7 +203,7 @@ inoremap jk <esc>
 
 " this is a mapping to edit and source (read) the .vimrc file
 nnoremap <leader>ev :vsplit! $MYVIMRC<cr>
-nnoremap <leader>ec :vsplit! ~/.vim/colors/aet_colorscheme_20170623.vim<cr>
+nnoremap <leader>ec :vsplit! ~/.vim/colors/aet_colorscheme.vim<cr>
 nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
 nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -289,8 +290,8 @@ command! -bar Hexmode call ToggleHex()
 
 " toggle hex mode (see .vim/autoload/functions.vim)
 nnoremap <c-x> :functions#Hexmode<CR>
-inoremap <c-x> <esc>:functions#Hexmode<CR>
-vnoremap <c-u> :<c-u>functions#Hexmode<CR>
+" inoremap <c-x> <esc>:functions#Hexmode<CR>
+" vnoremap <c-u> :<c-u>functions#Hexmode<CR>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -359,3 +360,7 @@ nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 " show or trim trailing white space
 nnoremap <silent> <F9> :/\s\+$<CR>
 nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+" add gundo binding
+nnoremap <F5> :GundoToggle<cr>
+
