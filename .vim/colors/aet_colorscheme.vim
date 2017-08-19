@@ -34,9 +34,9 @@
 
 set background=dark
 hi clear
-if exists("syntax_on")
-  syntax reset
-endif
+ if exists("syntax_on")
+   syntax reset
+ endif
 
 let g:colors_name = "aet_colorscheme"
 
@@ -70,12 +70,12 @@ highlight Keyword                   guifg=#5fd75f ctermfg=77  cterm=NONE
 highlight LineNr                    guifg=#585858 ctermfg=240  guibg=#1c1c1c ctermbg=234
 "highlight Number                    guifg=#FFFFFF ctermfg=15
 highlight PreProc                   guifg=#E6E1DC ctermfg=103
-highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=235 gui=italic cterm=underline
 highlight Statement                 guifg=#9e9e9e ctermfg=247  gui=NONE cterm=NONE
 highlight String                    guifg=#d7af5f ctermfg=179
 highlight Title                     guifg=#FFFFFF ctermfg=15
 highlight Type                      guifg=#FFFFFF ctermfg=15  gui=NONE cterm=NONE
-highlight Visual                    guibg=#880000 ctermbg=88
+" highlight Visual                    guibg=#880000 ctermbg=88
+highlight Visual                    guibg=#880000 ctermfg=none ctermbg=237
 
 highlight DiffAdd                   guifg=#E6E1DC ctermfg=7    guibg=#519F50 ctermbg=71
 highlight DiffDelete                guifg=#E6E1DC ctermfg=7    guibg=#660000 ctermbg=52
@@ -114,8 +114,34 @@ highlight TabLineSel                ctermfg=226   ctermbg=0 cterm=underline
 "highlight Title                     ctermfg=100   ctermbg=238 cterm=underline
 highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
 
-" highlight Pmenu                     ctermfg=136 ctermbg=0
-highlight Pmenu                     ctermfg=55 ctermbg=0
-" highlight PmenuSel                  ctermfg=136 ctermbg=0 cterm=bold
-highlight PmenuSel                  ctermfg=15 ctermbg=0 cterm=bold
+" YELLOW completion mode
+  " highlight Pmenu                     ctermfg=100 ctermbg=0
+  " highlight PmenuSel                  ctermfg=226 ctermbg=0 cterm=bold
+" FUSCIA completion mode
+  " highlight Pmenu                     ctermfg=90 ctermbg=0
+  " highlight PmenuSel                  ctermfg=207 ctermbg=0 cterm=bold
+" ORANGE completion mode
+  " highlight Pmenu                     ctermfg=130 ctermbg=0
+  " highlight PmenuSel                  ctermfg=208 ctermbg=0 cterm=bold
+" GREY completion mode
+    highlight Pmenu                     ctermfg=238 ctermbg=0
+    highlight PmenuSel                  ctermfg=255 ctermbg=0 cterm=bold
 
+
+" YELLOW sneak 
+  " highlight Sneak                     ctermfg=226 ctermbg=0 cterm=underline
+" FUSCIA sneak 
+  " highlight Sneak                     ctermfg=207 ctermbg=0 cterm=underline
+" ORANGE sneak
+  " highlight Sneak                     ctermfg=208 ctermbg=0 cterm=underline
+" GREY sneak 
+  highlight Sneak                     guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=238 gui=italic cterm=underline
+
+" YELLOW search
+  " highlight Search                    guifg=NONE    ctermfg=207 guibg=#262626 ctermbg=0 gui=italic cterm=underline
+" FUSCIA search
+  " highlight Search                    guifg=NONE    ctermfg=207 guibg=#262626 ctermbg=0 gui=italic cterm=underline
+" ORANGE search
+  " highlight Search                    guifg=NONE    ctermfg=208 guibg=#262626 ctermbg=0 gui=italic cterm=underline
+" GREY search
+  highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=238 gui=italic cterm=underline
