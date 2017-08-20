@@ -14,7 +14,6 @@ call vundle#begin()
     Plugin 'gmarik/Vundle.vim'     " this is required
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-sleuth'
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'scrooloose/nerdtree'
