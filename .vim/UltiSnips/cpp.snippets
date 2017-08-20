@@ -1,0 +1,38 @@
+# this is the guard define for .h files (note associates with .c files)
+snippet once "Make an include guard" b
+
+#ifndef ${1:`!v toupper(functions#Filename('_$1_h_', '_file_h_'))`}
+#define $1
+
+    ${0}
+
+#endif // $1
+
+endsnippet
+
+
+# license header
+snippet lic "Insert a license" b
+/*
+ *    This is the license
+ *
+ */
+
+
+endsnippet
+
+
+# general purpose comment header for .c and .h files
+snippet head "Insert a general purpose comment header" b
+/*
+ * File:   `!v expand("%:t")`
+ *
+ * Author: `echo $USER`
+ *
+ * Written on: `!v strftime("%c")`
+ *
+ *
+ * Description: ${1:Module description}
+ *
+ */
+endsnippet

@@ -1,0 +1,33 @@
+snippet _date "Insert current date"
+`!v strftime("%c")`
+endsnippet
+
+snippet _time "Insert current time"
+`!v strftime("%I:%M:%S %p")`
+endsnippet
+
+snippet _user "Insert current username"
+`echo $USER`
+endsnippet
+
+snippet _file "Insert present file name"
+`!v expand("%:t")`
+endsnippet
+
+snippet _File "Insert present file (complete path)"
+`!v expand("%:p")`
+endsnippet
+
+snippet _path "Insert present path"
+`!v expand("%:p:h")`
+endsnippet
+
+snippet todo "Insert ToDo line" b
+/* --  TODO: ${1:task description}. [`echo $USER`] `!v strftime("%c")` -- */
+endsnippet
+
+snippet fixme "Insert FixMe line" b
+/* --  FIXME: ${1:task description}. [`echo $USER`] `!v strftime("%c")` -- */
+endsnippet
+
+

@@ -21,6 +21,7 @@ call vundle#begin()
     Plugin 'tomtom/tcomment_vim'
     Plugin 'justinmk/vim-sneak'
     Plugin 'sjl/gundo.vim'
+    Plugin 'sirver/ultisnips'
 call vundle#end()
 filetype plugin indent on
 
@@ -103,7 +104,7 @@ set scrolloff=2    " minimum of three lines above and below cursor
 " Searching
 set ignorecase              " case insensitive searching
 set smartcase               " case-sensitive if expresson contains a capital letter
-set hlsearch                " highlight search resultf
+set nohlsearch              " highlight search resultf
 set incsearch               " set incremental search, like modern browsers
 set nolazyredraw            " don't redraw while executing macros
 " clear highlighted search
@@ -166,6 +167,10 @@ map <silent> <C-h> :call functions#WinMove('h')<cr>
 map <silent> <C-j> :call functions#WinMove('j')<cr>
 map <silent> <C-k> :call functions#WinMove('k')<cr>
 map <silent> <C-l> :call functions#WinMove('l')<cr>
+" map <silent> ˙ :call functions#WinMove('h')<cr>
+" map <silent> ∆ :call functions#WinMove('j')<cr>
+" map <silent> ˚ :call functions#WinMove('k')<cr>
+" map <silent> ¬ :call functions#WinMove('l')<cr>
 " " changes a vertical split to a horizontal split
 " nnoremap <leader>w- <c-w>t<c-w>K
 " changes a horizontal split to a vertical split
@@ -312,3 +317,11 @@ map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 " let g:sneak#label = 1
+
+" some ultisnip configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsEditSplit="<vertical>"
+let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
+" let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
