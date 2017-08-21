@@ -229,9 +229,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
 " from a website I found, does a dialog when :w, :q, :only, etc
 set confirm
 
-" for Gundo plugin, see vimcast
-nnoremap <F5> :GundoToggle<CR>
-
 " ex command for toggling hex mode - define mapping if desired
 command! -bar Hexmode call ToggleHex()
 
@@ -309,7 +306,7 @@ nnoremap <silent> <F9> :/\s\+$<CR>
 nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 " add gundo binding
-nnoremap <F5> :GundoToggle<cr>
+" nnoremap <F5> :GundoToggle<cr>
 
 " sneak bindings
 map f <Plug>Sneak_f

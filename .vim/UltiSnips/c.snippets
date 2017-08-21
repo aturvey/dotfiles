@@ -64,7 +64,7 @@ endsnippet
 
 
 # ternary conditional
-snippet tern "ternary conditional (tern)" 
+snippet tern "ternary conditional (tern)"
 ${1} ? ${2:a} : ${3:b}
 endsnippet
 
@@ -83,10 +83,23 @@ snippet Inc "include <...> (Inc)" b
 endsnippet
 
 
-# struct 
+# struct
 snippet struct "struct definition (struct)" b
-struct _${1:name} {
+typedef struct _${1:name}_t {
     ${0:int c;}
-} $1;
+} $1_t;
+
+$1_t ${2:sObject};
+
+endsnippet
+
+
+# case
+snippet case "case statement (case)" b
+switch ( ${1:<expression>} ) {
+    case ${2:x}:   ${3:action()};
+                break;
+    default:    ${4:action()};
+}
 
 endsnippet
