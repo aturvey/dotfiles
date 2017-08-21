@@ -54,7 +54,7 @@ highlight StatusLineNC              guifg=#303030 ctermfg=234  guibg=#949494 cte
 
 highlight Normal                    guifg=#9e9e9e ctermfg=247  guibg=#000000 ctermbg=0
 highlight Cursor                    guifg=#000000 ctermfg=0    guibg=#FFFFFF ctermbg=160
-highlight CursorLine                guibg=#000000 ctermbg=233  cterm=NONE
+highlight CursorLine                guibg=#000000 ctermbg=237  cterm=NONE
 
 highlight Comment                   guifg=#00d7ff ctermfg=45   gui=italic
 highlight Constant                  guifg=#6D9CBE ctermfg=73
@@ -74,8 +74,8 @@ highlight Statement                 guifg=#9e9e9e ctermfg=247  gui=NONE cterm=NO
 highlight String                    guifg=#d7af5f ctermfg=179
 highlight Title                     guifg=#FFFFFF ctermfg=15
 highlight Type                      guifg=#FFFFFF ctermfg=15  gui=NONE cterm=NONE
-" highlight Visual                    guibg=#880000 ctermbg=88
-highlight Visual                    guibg=#880000 ctermfg=none ctermbg=237
+highlight Visual                    guibg=#880000 ctermbg=88
+" highlight Visual                    guibg=#880000 ctermfg=none ctermbg=237
 
 highlight DiffAdd                   guifg=#E6E1DC ctermfg=7    guibg=#519F50 ctermbg=71
 highlight DiffDelete                guifg=#E6E1DC ctermfg=7    guibg=#660000 ctermbg=52
@@ -121,11 +121,11 @@ highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
   " highlight Pmenu                     ctermfg=90 ctermbg=0
   " highlight PmenuSel                  ctermfg=207 ctermbg=0 cterm=bold
 " ORANGE completion mode
-  " highlight Pmenu                     ctermfg=130 ctermbg=0
-  " highlight PmenuSel                  ctermfg=208 ctermbg=0 cterm=bold
+  highlight Pmenu                     ctermfg=130 ctermbg=0
+  highlight PmenuSel                  ctermfg=208 ctermbg=0 cterm=bold
 " GREY completion mode
-    highlight Pmenu                     ctermfg=238 ctermbg=0
-    highlight PmenuSel                  ctermfg=255 ctermbg=0 cterm=bold
+    " highlight Pmenu                     ctermfg=245 ctermbg=0
+    " highlight PmenuSel                  ctermfg=255 ctermbg=0 cterm=bold
 
 
 " YELLOW sneak 
@@ -135,7 +135,9 @@ highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
 " ORANGE sneak
   " highlight Sneak                     ctermfg=208 ctermbg=0 cterm=underline
 " GREY sneak 
-  highlight Sneak                     guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=238 gui=italic cterm=underline
+  " highlight Sneak                     guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=245 gui=italic cterm=underline
+" RED sneak 
+  highlight Sneak                      guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=88 gui=italic cterm=underline
 
 " YELLOW search
   " highlight Search                    guifg=NONE    ctermfg=207 guibg=#262626 ctermbg=0 gui=italic cterm=underline
@@ -144,4 +146,6 @@ highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
 " ORANGE search
   " highlight Search                    guifg=NONE    ctermfg=208 guibg=#262626 ctermbg=0 gui=italic cterm=underline
 " GREY search
-  highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=238 gui=italic cterm=underline
+  " highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=245 gui=italic cterm=underline
+" RED search
+  highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=88 gui=italic cterm=underline
