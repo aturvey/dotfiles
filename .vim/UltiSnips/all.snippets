@@ -1,0 +1,40 @@
+snippet _date "Insert current date (_date)"
+`!v strftime("%c")`
+endsnippet
+
+snippet _time "Insert current time (_time)"
+`!v strftime("%I:%M:%S %p")`
+endsnippet
+
+snippet _user "Insert current username (_user)"
+`echo $USER`
+endsnippet
+
+snippet _file "Insert present file name (_file)"
+`!v expand("%:t")`
+endsnippet
+
+snippet _File "Insert present file with path (_File)"
+`!v expand("%:p")`
+endsnippet
+
+snippet _path "Insert present path (_path)"
+`!v expand("%:p:h")`
+endsnippet
+
+snippet todo "Insert ToDo line (todo)" b
+/* --  TODO: ${1:task description}. [`echo $USER`] `!v strftime("%c")` -- */
+endsnippet
+
+snippet fixme "Insert FixMe line (fixme)" b
+/* --  FIXME: ${1:task description}. [`echo $USER`] `!v strftime("%c")` -- */
+endsnippet
+
+snippet lorem "Lorem Ipsum (lorem)" b
+Lorem ipsum dolor sit amet, consetetur dipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+in culpa qui officia deserunt mollit anim id est laborum.
+endsnippet

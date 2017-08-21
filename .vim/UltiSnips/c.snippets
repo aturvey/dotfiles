@@ -1,0 +1,105 @@
+
+# general purpose comment header for .c and .h files
+snippet head "Insert a general purpose comment header (head)" b
+/*
+ *  File:  `!v expand("%:t")`
+ *
+ *  Author:  `echo $USER`
+ *
+ *  Written on:  `!v strftime("%c")`
+ *
+ *
+ *  Description:  ${1:Module description}
+ *
+ */
+
+
+endsnippet
+
+
+# license header
+snippet lic "Insert a license (lic)" b
+/*
+ *    This is a standard license
+ *
+ */
+
+
+endsnippet
+
+
+# main
+snippet main "main() template (main)" b
+int main(int argc, char *argv[]) {
+
+    ${VISUAL}$0
+    return 0;
+
+}
+endsnippet
+
+
+# for loop
+snippet for "for loop (for)" b
+for ( ${1:int i = 0; i < COUNT; i++} ) {
+    ${VISUAL}$0
+}
+endsnippet
+
+
+# while loop
+snippet while "while loop (while)" b
+while ( ${1:0} ) {
+    ${VISUAL}$0
+}
+endsnippet
+
+
+# do loop
+snippet do "do loop (do)" b
+do {
+    ${VISUAL}${0}
+} while ( ${1:1} )
+endsnippet
+
+
+# ternary conditional
+snippet tern "ternary conditional (tern)"
+${1} ? ${2:a} : ${3:b}
+endsnippet
+
+
+# include "..."
+snippet inc "include 'filename.h' (inc)" b
+#include "${1:`!v expand("%:r")`}.h"
+
+endsnippet
+
+
+# include <...>
+snippet Inc "include <...> (Inc)" b
+#include <${1:stdio}.h>
+
+endsnippet
+
+
+# struct
+snippet struct "struct definition (struct)" b
+typedef struct _${1:name}_t {
+    ${0:int c;}
+} $1_t;
+
+$1_t ${2:sObject};
+
+endsnippet
+
+
+# case
+snippet case "case statement (case)" b
+switch ( ${1:<expression>} ) {
+    case ${2:x}:   ${3:action()};
+                break;
+    default:    ${4:action()};
+}
+
+endsnippet
