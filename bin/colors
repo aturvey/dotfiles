@@ -1,0 +1,9 @@
+#!/bin/bash
+for i in {0..15} ; do
+    for j in {0..15} ; do
+        let c=$(($i*16+$j))
+        # printf "%0*d " 3 $c
+        printf "\x1b[38;5;${c}m%0*d " 3 $c
+    done
+    printf "\n"
+done
