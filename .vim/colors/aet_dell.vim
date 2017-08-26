@@ -1,44 +1,10 @@
-" Vim color scheme
-"
-" Name:         railscasts.vim
-" Maintainer:   Nick Moffitt <nick@zork.net>
-" Last Change:  01 Mar 2008
-" License:      WTFPL <http://sam.zoy.org/wtfpl/>
-" Version:      2.1
-"
-" This theme is based on Josh O'Rourke's Vim clone of the railscast
-" textmate theme.  The key thing I have done here is supply 256-color
-" terminal equivalents for as many of the colors as possible, and fixed
-" up some of the funny behaviors for editing e-mails and such.
-"
-" To use for gvim:
-" 1: install this file as ~/.vim/colors/railscasts.vim
-" 2: put "colorscheme railscasts" in your .gvimrc
-"
-" If you are using Ubuntu, you can get the benefit of this in your
-" terminals using ordinary vim by taking the following steps:
-"
-" 1: sudo apt-get install ncurses-term
-" 2: put the following in your .vimrc
-"     if $COLORTERM == 'gnome-terminal'
-"         set term=gnome-256color
-"         colorscheme railscasts
-"     else
-"         colorscheme default
-"     endif
-" 3: if you wish to use this with screen, add the following to your .screenrc:
-"     attrcolor b ".I"
-"     termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-"     defbce "on"
-"     term screen-256color-bce
-
 set background=dark
 hi clear
  if exists("syntax_on")
    syntax reset
  endif
 
-let g:colors_name = "aet_colorscheme"
+let g:colors_name = "aet_dell"
 
 hi link htmlTag                     xmlTag
 hi link htmlTagName                 xmlTagName
@@ -75,7 +41,8 @@ highlight String                    guifg=#d7af5f ctermfg=179
 highlight Title                     guifg=#FFFFFF ctermfg=15
 highlight Type                      guifg=#FFFFFF ctermfg=15  gui=NONE cterm=NONE
 " highlight Visual                    guibg=#880000 ctermbg=88
-highlight Visual                    guibg=#880000 ctermfg=none ctermbg=237
+highlight Visual                    guibg=#880000 ctermbg=52
+" highlight Visual                    guibg=#880000 ctermfg=none ctermbg=237
 
 highlight DiffAdd                   guifg=#E6E1DC ctermfg=7    guibg=#519F50 ctermbg=71
 highlight DiffDelete                guifg=#E6E1DC ctermfg=7    guibg=#660000 ctermbg=52
@@ -135,7 +102,9 @@ highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
 " ORANGE sneak
   " highlight Sneak                     ctermfg=208 ctermbg=0 cterm=underline
 " GREY sneak 
-  highlight Sneak                     guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=238 gui=italic cterm=underline
+  " highlight Sneak                     guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=238 gui=italic cterm=underline
+" RED sneak 
+  highlight Sneak                      guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=52 gui=italic cterm=underline
 
 " YELLOW search
   " highlight Search                    guifg=NONE    ctermfg=207 guibg=#262626 ctermbg=0 gui=italic cterm=underline
@@ -144,4 +113,6 @@ highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
 " ORANGE search
   " highlight Search                    guifg=NONE    ctermfg=208 guibg=#262626 ctermbg=0 gui=italic cterm=underline
 " GREY search
-  highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=238 gui=italic cterm=underline
+  " highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=238 gui=italic cterm=underline
+" RED search
+  highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=52 gui=italic cterm=underline

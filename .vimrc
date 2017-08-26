@@ -22,6 +22,7 @@ call vundle#begin()
     Plugin 'justinmk/vim-sneak'
     Plugin 'sjl/gundo.vim'
     Plugin 'sirver/ultisnips'
+    Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 
@@ -90,9 +91,12 @@ endif
 
 " the colorscheme.vim files are supposed to go into ~/.vim/color
 set t_Co=256
-color aet_colorscheme
-" highlight Normal ctermbg=Black
-" highlight Normal guibg=black
+if has("macunix")
+    color aet_mac
+else
+    color aet_dell
+    " color aet_eizo
+endif
 
 set nowrap
 set linebreak
@@ -163,10 +167,12 @@ nnoremap - <
 " nnoremap <leader>ws <c-w>s
 " nnoremap <leader>wv <c-w>v
 " nnoremap <leader>wT <c-w>T
-map <silent> <C-h> :call functions#WinMove('h')<cr>
-map <silent> <C-j> :call functions#WinMove('j')<cr>
-map <silent> <C-k> :call functions#WinMove('k')<cr>
-map <silent> <C-l> :call functions#WinMove('l')<cr>
+" ctrl-key to move between splits
+" map <silent> <C-h> :call functions#WinMove('h')<cr>
+" map <silent> <C-j> :call functions#WinMove('j')<cr>
+" map <silent> <C-k> :call functions#WinMove('k')<cr>
+" map <silent> <C-l> :call functions#WinMove('l')<cr>
+" alt arrow keys to move between splits
 " map <silent> ˙ :call functions#WinMove('h')<cr>
 " map <silent> ∆ :call functions#WinMove('j')<cr>
 " map <silent> ˚ :call functions#WinMove('k')<cr>
@@ -178,6 +184,15 @@ map <silent> <C-l> :call functions#WinMove('l')<cr>
 "nnoremap <leader>w| <c-w>t<c-w>H
 " nnoremap <leader>w/ <c-w>t<c-w>H
 
+" maps for moving between splits using vim-tmux-navigator plugin
+" see chris toomey github vim plugin vim-tmux-navigator (and corresponding maps in .tmux.conf)
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" disable navigation when pane is zoomed 
+let g:tmux_navigator_disable_when_zoomed = 1
+
 set hidden
 
 " map jk to <esc> to easily bail out of insert or visual mode
@@ -185,7 +200,8 @@ inoremap jk <esc>
 
 " this is a mapping to edit and source (read) the .vimrc file
 nnoremap <leader>ev :vsplit! $MYVIMRC<cr>
-nnoremap <leader>ec :vsplit! ~/.vim/colors/aet_colorscheme.vim<cr>
+" nnoremap <leader>ec :vsplit! ~/.vim/colors/aet_colorscheme.vim<cr>
+nnoremap <leader>ec :execute "vsplit! ~/.vim/colors/" . fnameescape(g:colors_name) . ".vim"<cr>
 nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
 nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -291,7 +307,7 @@ nnoremap <leader>vz :VimuxZoomRunner<cr>
 " this requires requires the +clipboard compile time option in vim (use --version)
 set clipboard=unnamed
 
-nnoremap <leader>q :q<cr>
+" nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
 
 " remap ctrl-b to decrement under cursor
