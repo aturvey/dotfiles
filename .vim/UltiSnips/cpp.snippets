@@ -1,4 +1,76 @@
-# this is the guard define for .h files (note associates with .c files)
+# doxygen file header (for .h files)
+snippet doch "Doxygen file header (doch)" b
+/**
+ *  @file   `!v expand("%:t")`
+ *  @brief  ${1:< brief description >}
+ *
+ *  ${2:< detailed description >}
+ *
+ *  @author `echo $USER`
+ *  @date   `!v strftime("%c")`
+ *
+ *  @bug    No known bugs.
+ *
+ */
+
+endsnippet
+
+
+# doxygen function header (for .h files)
+snippet docf "Doxygen function header (docf))" b
+/**
+ *  @brief  ${1:< brief description >}
+ *
+ *  ${2:< detailed description >}
+ *
+ *  @param  ${3:<variable> <description>}
+ *  @return ${4:< returns >}
+ *
+ */
+endsnippet
+
+
+# doxygen variable documentation (for .h files)
+snippet vdoc "Doxygen variable documentation (docv))" 
+/**< ${1:< description >} */
+endsnippet
+
+
+# doxygen pre-variable documentation (for .h files)
+snippet docv "Doxygen pre-variable documentation (docv))" 
+/** ${1:< description >} */
+endsnippet
+
+
+# general purpose comment block (for .h files)
+snippet comb "General purpose C comment block (comb)" b
+/*
+ *  ${1:< comment >}
+ */
+endsnippet
+
+
+# general purpose comment line (for .h files)
+snippet coml "General purpose C comment line (coml)" b
+/* ${1:< comment >} */
+endsnippet
+
+
+# include "..." (for .h files)
+snippet inc "include 'filename.h' (inc)" b
+#include "${1:`!v expand("%:r")`}.h"
+
+endsnippet
+
+
+# include <...> (for .h files)
+snippet Inc "include <...> (Inc)" b
+#include <${1:stdio}.h>
+
+endsnippet
+
+
+# this is the include guard (for .h files)
 snippet once "Make an include guard" b
 
 #ifndef ${1:`!v toupper(functions#Filename('_$1_h_', '_file_h_'))`}
@@ -11,28 +83,12 @@ snippet once "Make an include guard" b
 endsnippet
 
 
-# license header
-snippet lic "Insert a license" b
+# general purpose license
+snippet lic "The license header" b
 /*
- *    This is the license
+ *
+ *  This is the license.
  *
  */
 
-
-endsnippet
-
-
-# general purpose comment header for .c and .h files
-snippet head "Insert a general purpose comment header" b
-/*
- * File:   `!v expand("%:t")`
- *
- * Author: `echo $USER`
- *
- * Written on: `!v strftime("%c")`
- *
- *
- * Description: ${1:Module description}
- *
- */
 endsnippet

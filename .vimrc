@@ -89,7 +89,7 @@ if &term =~ '^screen'
 endif
 
 
-" the colorscheme.vim files are supposed to go into ~/.vim/color
+" the colorscheme.vim files are supposed to go into ~/.vim/colors
 set t_Co=256
 if has("macunix")
     color aet_mac
@@ -200,7 +200,6 @@ inoremap jk <esc>
 
 " this is a mapping to edit and source (read) the .vimrc file
 nnoremap <leader>ev :vsplit! $MYVIMRC<cr>
-" nnoremap <leader>ec :vsplit! ~/.vim/colors/aet_colorscheme.vim<cr>
 nnoremap <leader>ec :execute "vsplit! ~/.vim/colors/" . fnameescape(g:colors_name) . ".vim"<cr>
 nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
 nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
@@ -307,6 +306,7 @@ nnoremap <leader>vz :VimuxZoomRunner<cr>
 " this requires requires the +clipboard compile time option in vim (use --version)
 set clipboard=unnamed
 
+" easier save and quite (but maybe easy quit is not such a good idea)
 " nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
 
