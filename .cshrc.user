@@ -88,4 +88,4 @@ setenv MYVIMRC ~/.vimrc
 
 ## start ssh-agent
 ##   use % ssh-add ~/.ssh/<id_rsa_xyz>
-eval `ssh-agent`
+# eval `ssh-agent`
