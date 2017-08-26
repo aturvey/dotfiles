@@ -19,7 +19,7 @@ call vundle#begin()
     Plugin 'scrooloose/nerdtree'
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
-    Plugin 'justinmk/vim-sneak'
+    " Plugin 'justinmk/vim-sneak'
     Plugin 'sjl/gundo.vim'
     Plugin 'sirver/ultisnips'
 call vundle#end()
@@ -88,11 +88,13 @@ if &term =~ '^screen'
 endif
 
 
-" the colorscheme.vim files are supposed to go into ~/.vim/color
+" the colorscheme.vim files are supposed to go into ~/.vim/colors
 set t_Co=256
-color aet_colorscheme
-" highlight Normal ctermbg=Black
-" highlight Normal guibg=black
+if has("macunix")
+    color aet_mac
+else
+    color aet_dell
+endif
 
 set nowrap
 set linebreak
@@ -185,7 +187,7 @@ inoremap jk <esc>
 
 " this is a mapping to edit and source (read) the .vimrc file
 nnoremap <leader>ev :vsplit! $MYVIMRC<cr>
-nnoremap <leader>ec :vsplit! ~/.vim/colors/aet_colorscheme.vim<cr>
+nnoremap <leader>ec :execute "vsplit! ~/.vim/colors/" . fnameescape(g:colors_name) . ".vim"<cr>
 nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
 nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -291,7 +293,8 @@ nnoremap <leader>vz :VimuxZoomRunner<cr>
 " this requires requires the +clipboard compile time option in vim (use --version)
 set clipboard=unnamed
 
-nnoremap <leader>q :q<cr>
+" easier save and quite (but maybe easy quit is not such a good idea)
+" nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
 
 " remap ctrl-b to decrement under cursor
@@ -308,11 +311,11 @@ nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :no
 " add gundo binding
 " nnoremap <F5> :GundoToggle<cr>
 
-" sneak bindings
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
+" sneak bindings (NOT WORKING ON REDHAT)
+" map f <Plug>Sneak_f
+" map F <Plug>Sneak_F
+" map t <Plug>Sneak_t
+" map T <Plug>Sneak_T
 " let g:sneak#label = 1
 
 " some ultisnip configuration

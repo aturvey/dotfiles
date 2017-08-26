@@ -1,44 +1,10 @@
-" Vim color scheme
-"
-" Name:         railscasts.vim
-" Maintainer:   Nick Moffitt <nick@zork.net>
-" Last Change:  01 Mar 2008
-" License:      WTFPL <http://sam.zoy.org/wtfpl/>
-" Version:      2.1
-"
-" This theme is based on Josh O'Rourke's Vim clone of the railscast
-" textmate theme.  The key thing I have done here is supply 256-color
-" terminal equivalents for as many of the colors as possible, and fixed
-" up some of the funny behaviors for editing e-mails and such.
-"
-" To use for gvim:
-" 1: install this file as ~/.vim/colors/railscasts.vim
-" 2: put "colorscheme railscasts" in your .gvimrc
-"
-" If you are using Ubuntu, you can get the benefit of this in your
-" terminals using ordinary vim by taking the following steps:
-"
-" 1: sudo apt-get install ncurses-term
-" 2: put the following in your .vimrc
-"     if $COLORTERM == 'gnome-terminal'
-"         set term=gnome-256color
-"         colorscheme railscasts
-"     else
-"         colorscheme default
-"     endif
-" 3: if you wish to use this with screen, add the following to your .screenrc:
-"     attrcolor b ".I"
-"     termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-"     defbce "on"
-"     term screen-256color-bce
-
 set background=dark
 hi clear
  if exists("syntax_on")
    syntax reset
  endif
 
-let g:colors_name = "aet_colorscheme"
+let g:colors_name = "aet_dell"
 
 hi link htmlTag                     xmlTag
 hi link htmlTagName                 xmlTagName
@@ -54,20 +20,20 @@ highlight StatusLineNC              guifg=#303030 ctermfg=234  guibg=#949494 cte
 
 highlight Normal                    guifg=#9e9e9e ctermfg=247  guibg=#000000 ctermbg=0
 highlight Cursor                    guifg=#000000 ctermfg=0    guibg=#FFFFFF ctermbg=160
-highlight CursorLine                guibg=#000000 ctermbg=237  cterm=NONE
+highlight CursorLine                guibg=#000000 ctermbg=235  cterm=NONE
 
 highlight Comment                   guifg=#00d7ff ctermfg=45   gui=italic
 highlight Constant                  guifg=#6D9CBE ctermfg=73
 highlight Define                    guifg=#CC7833 ctermfg=173
-highlight Error                     guifg=#FFC66D ctermfg=221  guibg=#990000 ctermbg=0 ctermfg=1
-highlight ErrorMsg                  guifg=#FFC66D ctermfg=221  guibg=#990000 ctermbg=0 ctermfg=1
+highlight Error                     guifg=#FFC66D ctermfg=009  guibg=#990000 ctermbg=0 
+highlight ErrorMsg                  guifg=#FFC66D ctermfg=009  guibg=#990000 ctermbg=0
 highlight Function                  guifg=#87ff00 ctermfg=118  gui=NONE cterm=NONE
 "highlight Identifier                guifg=#6D9CBE ctermfg=73   gui=NONE cterm=NONE
 highlight Identifier                guifg=#6D9CBE ctermfg=255   gui=NONE cterm=NONE
 highlight Include                   guifg=#d7ff87 ctermfg=192  gui=NONE cterm=NONE
 "highlight PreCondit                 guifg=#CC7833 ctermfg=173  gui=NONE cterm=NONE
 highlight Keyword                   guifg=#5fd75f ctermfg=77  cterm=NONE
-highlight LineNr                    guifg=#585858 ctermfg=240  guibg=#1c1c1c ctermbg=234
+highlight LineNr                    guifg=#585858 ctermfg=143  guibg=#1c1c1c ctermbg=234
 "highlight Number                    guifg=#FFFFFF ctermfg=15
 highlight PreProc                   guifg=#E6E1DC ctermfg=103
 highlight Statement                 guifg=#9e9e9e ctermfg=247  gui=NONE cterm=NONE

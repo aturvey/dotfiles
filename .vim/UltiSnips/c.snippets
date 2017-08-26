@@ -1,34 +1,76 @@
-
-# general purpose comment header for .c and .h files
-snippet head "Insert a general purpose comment header (head)" b
-/*
- *  File:  `!v expand("%:t")`
+# doxygen file header (for .c files)
+snippet docc "Doxygen file header (docc)" b
+/**
+ *  @file   `!v expand("%:t")`
+ *  @brief  ${1:< brief description >}
  *
- *  Author:  `echo $USER`
+ *  ${2:< detailed description >}
  *
- *  Written on:  `!v strftime("%c")`
+ *  @author `echo $USER`
+ *  @date   `!v strftime("%c")`
  *
- *
- *  Description:  ${1:Module description}
+ *  @bug    No known bugs.
  *
  */
-
 
 endsnippet
 
 
-# license header
-snippet lic "Insert a license (lic)" b
-/*
- *    This is a standard license
+# doxygen function header (for .c files)
+snippet docf "Doxygen function header (docf))" b
+/**
+ *  @brief  ${1:< brief description >}
+ *
+ *  ${2:< detailed description >}
+ *
+ *  @param  ${3:<var> <description>}
+ *  @return ${4:< returns >}
  *
  */
+endsnippet
 
+
+# doxygen post-variable documentation (for .c files)
+snippet vdoc "Doxygen post-variable documentation (vdoc))" 
+/**< ${1:< description >} */
+endsnippet
+
+
+# doxygen pre-variable documentation (for .c files)
+snippet docv "Doxygen pre-variable documentation (docv))" 
+/** ${1:< description >} */
+endsnippet
+
+
+# general purpose comment block (for .c files)
+snippet comb "General purpose C comment block (comb)" b
+/*
+ *  ${1:< comment >}
+ */
+endsnippet
+
+
+# general purpose comment line (for .c files)
+snippet coml "General purpose C comment line (coml)" b
+/* ${1:< comment >} */
+endsnippet
+
+
+# include "..."
+snippet inc "include 'filename.h' (inc)" b
+#include "${1:`!v expand("%:r")`}.h"
 
 endsnippet
 
 
-# main
+# include <...>
+snippet Inc "include <...> (Inc)" b
+#include <${1:stdio}.h>
+
+endsnippet
+
+
+# main function call 
 snippet main "main() template (main)" b
 int main(int argc, char *argv[]) {
 
@@ -41,7 +83,7 @@ endsnippet
 
 # for loop
 snippet for "for loop (for)" b
-for ( ${1:int i = 0; i < COUNT; i++} ) {
+for ( int i = 0; i < ${1:COUNT}; i++ ) {
     ${VISUAL}$0
 }
 endsnippet
@@ -66,20 +108,6 @@ endsnippet
 # ternary conditional
 snippet tern "ternary conditional (tern)"
 ${1} ? ${2:a} : ${3:b}
-endsnippet
-
-
-# include "..."
-snippet inc "include 'filename.h' (inc)" b
-#include "${1:`!v expand("%:r")`}.h"
-
-endsnippet
-
-
-# include <...>
-snippet Inc "include <...> (Inc)" b
-#include <${1:stdio}.h>
-
 endsnippet
 
 
