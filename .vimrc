@@ -22,6 +22,7 @@ call vundle#begin()
     " Plugin 'justinmk/vim-sneak'
     Plugin 'sjl/gundo.vim'
     Plugin 'sirver/ultisnips'
+    Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 
@@ -94,6 +95,7 @@ if has("macunix")
     color aet_mac
 else
     color aet_dell
+    " color aet_eizo
 endif
 
 set nowrap
@@ -165,10 +167,12 @@ nnoremap - <
 " nnoremap <leader>ws <c-w>s
 " nnoremap <leader>wv <c-w>v
 " nnoremap <leader>wT <c-w>T
-map <silent> <C-h> :call functions#WinMove('h')<cr>
-map <silent> <C-j> :call functions#WinMove('j')<cr>
-map <silent> <C-k> :call functions#WinMove('k')<cr>
-map <silent> <C-l> :call functions#WinMove('l')<cr>
+" ctrl-key to move between splits
+" map <silent> <C-h> :call functions#WinMove('h')<cr>
+" map <silent> <C-j> :call functions#WinMove('j')<cr>
+" map <silent> <C-k> :call functions#WinMove('k')<cr>
+" map <silent> <C-l> :call functions#WinMove('l')<cr>
+" alt arrow keys to move between splits
 " map <silent> ˙ :call functions#WinMove('h')<cr>
 " map <silent> ∆ :call functions#WinMove('j')<cr>
 " map <silent> ˚ :call functions#WinMove('k')<cr>
@@ -179,6 +183,15 @@ map <silent> <C-l> :call functions#WinMove('l')<cr>
 " nnoremap <leader>w\ <c-w>t<c-w>H
 "nnoremap <leader>w| <c-w>t<c-w>H
 " nnoremap <leader>w/ <c-w>t<c-w>H
+
+" maps for moving between splits using vim-tmux-navigator plugin
+" see chris toomey github vim plugin vim-tmux-navigator (and corresponding maps in .tmux.conf)
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" disable navigation when pane is zoomed 
+let g:tmux_navigator_disable_when_zoomed = 1
 
 set hidden
 
