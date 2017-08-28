@@ -49,7 +49,7 @@ if [ ${TERM} != "dumb" ]; then
   PS2='\[\e[01;33m\]> \[\e[0m\]'
   ## evaluate the dircolors for ls
   eval $(gdircolors ~/.dircolors)
-  eval $(ssh-agent)
+  ## eval $(ssh-agent)
   ## use with % ssh-add ~/.ssh/id_rsa
 fi
 
