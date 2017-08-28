@@ -1,0 +1,21 @@
+#
+# File: .login
+#   .login file for tcsh and csh
+#
+# Created on: Fri Nov 25 20:33:08 2005
+#
+
+##  Analog Devices Cadtools Environment Setup
+
+##  Editor of choice
+setenv EDITOR vim
+
+##  Printer of choice
+setenv PRINTER bd5pr110
+setenv PLOTTER bd5pl11
+
+##  VNC Desktop
+setenv VNCDESKTOP kde2
+
+##  CVS Environment
+setenv CVSEDITOR vim

@@ -37,6 +37,8 @@ alias gdb 'gdb --quiet'
 alias tmux 'tmux -2'
 
 ## this is for managing dotfiles
+alias got 'git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dot 'git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias gitt 'git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 

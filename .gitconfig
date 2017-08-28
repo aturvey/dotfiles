@@ -1,0 +1,24 @@
+[user]
+	name = aturvey
+	email = anthony.turvey@gmail.com
+[color]
+	ui = auto
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	br = branch
+	stat = status -s
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	logp = log --pretty=oneline
+	logs = log --stat
+	logg = log --pretty=format:\\\" %h  %s\\\" --graph
+[push]
+	default = simple
+[merge]
+	renormalize = true
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false

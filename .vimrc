@@ -324,7 +324,7 @@ nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :no
 " add gundo binding
 " nnoremap <F5> :GundoToggle<cr>
 
-" sneak bindings (NOT WORKING ON REDHAT)
+" sneak bindings
 " map f <Plug>Sneak_f
 " map F <Plug>Sneak_F
 " map t <Plug>Sneak_t
@@ -338,6 +338,3 @@ let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 let g:UltiSnipsEditSplit="<vertical>"
 let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 " let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
-
-" just turn off this way of entering command window
-nnoremap q: :
