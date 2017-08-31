@@ -3,28 +3,33 @@
 	excludesfile = /Users/aturvey/.gitignore_global
 [push]
 	default = simple
-[merg]
-	conflictstyle = diff3
 [credential]
 	helper = osxkeychain
 [user]
 	name = Anthony Turvey
 	email = anthony.turvey@gmail.com
+[color]
+	ui = auto
 [pull]
-	default = matching
+	default = simple
 [alias]
 	stat = status -s
-	unstage = reset --mixed HEAD --
+	unstage = reset HEAD --
 	last = log -1 HEAD --stat
 	logp = log --pretty=oneline
 	logs = log --stat
-	logg = log --pretty=format:\" %h  %s\" --graph
+	logg = log --pretty=format:\\\" %h  %s\\\" --graph
 	br = branch
 	ch = checkout
 	co = commit
 	df = diff
 	dt = difftool
-[color]
-	ui = auto
 [diff]
 	tool = vimdiff
+	conflictstyle = diff3
+[merge]
+	conflictstyle = diff3
+	renormalize = true
+	tool = vimdiff
+[mergetool]
+	prompt = false
