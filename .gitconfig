@@ -1,24 +1,35 @@
+[core]
+	editor = vim
+	excludesfile = /Users/aturvey/.gitignore_global
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
 [user]
-	name = aturvey
+	name = Anthony Turvey
 	email = anthony.turvey@gmail.com
 [color]
 	ui = auto
-[core]
-	editor = vim
+[pull]
+	default = simple
 [alias]
-	co = checkout
-	br = branch
 	stat = status -s
 	unstage = reset HEAD --
-	last = log -1 HEAD
+	last = log -1 HEAD --stat
 	logp = log --pretty=oneline
 	logs = log --stat
 	logg = log --pretty=format:\\\" %h  %s\\\" --graph
-[push]
-	default = simple
-[merge]
-	renormalize = true
+	br = branch
+	ch = checkout
+	co = commit
+	df = diff
+	dt = difftool
+[diff]
 	tool = vimdiff
 	conflictstyle = diff3
+[merge]
+	conflictstyle = diff3
+	renormalize = true
+	tool = vimdiff
 [mergetool]
 	prompt = false
