@@ -29,4 +29,6 @@ alias vim='/usr/local/bin/vim'
 
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias got='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias gitt='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
