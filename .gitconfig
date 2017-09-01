@@ -18,10 +18,9 @@
 	last = log -1 HEAD --stat
 	logp = log --pretty=oneline
 	logs = log --stat
-	logg = log --pretty=format:\\\" %h  %s\\\" --graph
+	logg = log --pretty=format:\" %h  %s\" --graph
 	br = branch
-	ch = checkout
-	co = commit
+	co = checkout
 	df = diff
 	dt = difftool
 [diff]
