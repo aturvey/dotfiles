@@ -341,3 +341,6 @@ let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 
 " just disable this way of entering command window
 nnoremap q: :
+
+" experiment with syntax off during diff mode
+"au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
