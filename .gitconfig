@@ -19,7 +19,7 @@
 	logp = log --pretty=oneline
 	logs = log --stat
 	logg = log --pretty=format:\" %h  %s\" --graph
-	br = branch
+	br = branch -avv
 	co = checkout
 	df = diff
 	dt = difftool
