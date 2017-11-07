@@ -45,11 +45,11 @@ if [ ${TERM} != "dumb" ]; then
   source ~/.git-prompt.sh
   export GIT_PS1_SHOWDIRTYSTATE=1
   #PS1='[\u@\[\e[01;37m\]\h\[\e[0m\]:\W]%\[\e[01;37m\]$(__git_ps1)\[\e[0m\] '
-  PS1='\[\e[01;36m\][\u@\h:\W]%\[\e[01;37m\]$(__git_ps1)\[\e[0m\] '
-  PS2='\[\e[01;36m\]> \[\e[0m\]'
+  PS1='\[\e[01;33m\][\u@\h:\W]%\[\e[01;37m\]$(__git_ps1)\[\e[0m\] '
+  PS2='\[\e[01;33m\]> \[\e[0m\]'
   ## evaluate the dircolors for ls
   eval $(dircolors ~/.dircolors)
-  eval $(ssh-agent)
+  ## eval $(ssh-agent)
   ## use with % ssh-add ~/.ssh/id_rsa
 fi
 
