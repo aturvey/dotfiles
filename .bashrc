@@ -49,7 +49,6 @@ if [ ${TERM} != "dumb" ]; then
   PS2='\[\e[01;33m\]> \[\e[0m\]'
   ## evaluate the dircolors for ls
   eval $(dircolors ~/.dircolors)
-  ## eval $(ssh-agent)
   ## use with % ssh-add ~/.ssh/id_rsa
 fi
 
@@ -57,3 +56,7 @@ fi
 
 # Enable tab completion
 source ~/.git-completion.bash
+
+## eval $(ssh-agent)
+echo 'Hint: % eval $(ssh-agent)'
+echo '      % ssh-add .ssh/id_rsa_xxxx'
