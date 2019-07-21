@@ -325,3 +325,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 let g:UltiSnipsEditSplit="<vertical>"
 let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 " let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
+"
+set visualbell
