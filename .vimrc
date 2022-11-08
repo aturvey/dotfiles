@@ -15,12 +15,12 @@ call vundle#begin()
     Plugin 'gmarik/Vundle.vim'     " this is required
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-commentary'
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'scrooloose/nerdtree'
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
+    Plugin 'tpope/vim-commentary'
     Plugin 'justinmk/vim-sneak'
     Plugin 'sjl/gundo.vim'
     Plugin 'sirver/ultisnips'
@@ -154,9 +154,6 @@ set incsearch
 set listchars=precedes:<,tab:>-
 set list
 
-" toggle comment (vim-commentary)
-noremap <leader>c :Commentary<cr>
-
 " some helper maps for split screen control
 " horizontal window size increase
 nnoremap + +
@@ -278,6 +275,9 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <leader>t <c-_><c-_>
 vmap <leader>t <c-_><c-_>
 
+" toggle comment (vim-commentary)
+noremap <leader>c :Commentary<cr>
+
 " toggle NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
 
@@ -347,6 +347,20 @@ let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 
 " just disable this way of entering command window
 nnoremap q: :
+
+" insert a timestamp, name, header
+noremap <F5> "=strftime("%c")<CR>P
+inoreabbrev idate <C-r>=strftime("%c")<CR>
+inoreabbrev iname Anthony Turvey
+inoreabbrev ihead  
+\<CR>
+\File:   <C-r>%<CR>
+\<CR>
+\Date:   <C-r>=strftime("%c")<CR><CR>
+\<CR>
+\Author: Anthony Turvey<CR>
+\<CR>
+
 
 " experiment with syntax off during diff mode
 "au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
