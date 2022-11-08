@@ -5,6 +5,7 @@
 # export TASMOPTS='-t80 -g0 -f00 -o16'
 export GNUPGHOME=/Users/aturvey/.gnupg
 export EDITOR=vim
+export PATH="/opt/gcc-arm-none-eabi/bin:/Users/aturvey/bin:$PATH"
 # export TERM='xterm-256color'
 
 ##  Some alias and function definitions
@@ -57,3 +58,27 @@ fi
 
 # Enable tab completion
 source ~/.git-completion.bash
+
+# these might be required for zlib (not sure what that is), but came from '% brew install zlib'
+# export LDFLAGS="-L/usr/local/opt/zlib/lib"
+# export CPPFLAGS="-I/usr/local/opt/zlib/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+
+export PYTHONPATH="Users/aturvey/opt/anaconda3/bin/python"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/aturvey/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/aturvey/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/aturvey/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/aturvey/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

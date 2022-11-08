@@ -9,11 +9,13 @@ version 6.0
 "   :PluginClean
 set nocompatible
 filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'gmarik/Vundle.vim'     " this is required
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-commentary'
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'scrooloose/nerdtree'
@@ -23,6 +25,7 @@ call vundle#begin()
     Plugin 'sjl/gundo.vim'
     Plugin 'sirver/ultisnips'
     Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'JuliaEditorSupport/julia-vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -115,7 +118,8 @@ set nolazyredraw            " don't redraw while executing macros
 noremap <space> :set hlsearch! hlsearch?<cr>
 
 " set up tab behavior
-set tabstop=8      " keep a standard hard tab
+" set tabstop=8      " keep a standard hard tab
+set tabstop=4      " change standard tabstop from 8 to 4
 set softtabstop=4  " but our expandtab will use 4 spaces
 set shiftwidth=4   " and shifting will also be 4 spaces
 set shiftround     " this makes < and > round to nearest shiftwidth
@@ -150,6 +154,8 @@ set incsearch
 set listchars=precedes:<,tab:>-
 set list
 
+" toggle comment (vim-commentary)
+noremap <leader>c :Commentary<cr>
 
 " some helper maps for split screen control
 " horizontal window size increase
@@ -344,3 +350,5 @@ nnoremap q: :
 
 " experiment with syntax off during diff mode
 "au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
+
+runtime macros/matchit.vim

@@ -25,11 +25,11 @@ alias po='popd'
 alias sha1sum='shasum -a 1'
 alias sha256sum='shasum -a 256'
 alias md5sum='md5'
-alias vim='/usr/local/bin/vim'
-alias python='/usr/local/bin/python2.7'
 
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias got='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias gitt='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# ranger
+alias rn='ranger'
