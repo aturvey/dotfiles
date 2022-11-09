@@ -313,7 +313,7 @@ nnoremap <leader>vz :VimuxZoomRunner<cr>
 set clipboard=unnamed
 
 " easier save and quite (but maybe easy quit is not such a good idea)
-" nnoremap <leader>q :q<cr>
+nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
 
 " remap ctrl-b to decrement under cursor
@@ -366,3 +366,6 @@ inoreabbrev ihead
 "au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
 
 runtime macros/matchit.vim
+
+" stick a semicolon at the end of line while in insert mode
+inoremap ;; <C-o>m`<C-o>A;<C-o>``
