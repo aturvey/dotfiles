@@ -19,9 +19,11 @@ call vundle#begin()
     Plugin 'scrooloose/nerdtree'
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
-    Plugin 'justinmk/vim-sneak'
+    Plugin 'tpope/vim-commentary'
     Plugin 'sjl/gundo.vim'
     Plugin 'sirver/ultisnips'
+    Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'justinmk/vim-sneak'
 call vundle#end()
 filetype plugin indent on
 
@@ -90,7 +92,13 @@ endif
 
 " the colorscheme.vim files are supposed to go into ~/.vim/color
 set t_Co=256
-color aet_colorscheme
+if has("macunix")
+    color aet_mac
+else
+    color aet_colorscheme
+    " color aet_dell
+    " color aet_eizo
+endif
 " highlight Normal ctermbg=Black
 " highlight Normal guibg=black
 
@@ -156,17 +164,17 @@ nnoremap _ -
 nnoremap = >
 " vertical window size decrease
 nnoremap - <
-" nnoremap <leader>wc <c-w>c
-" nnoremap <leader>wo <c-w>o
-" nnoremap <leader>wx <c-w>x
-" nnoremap <leader>wp <c-w>p
-" nnoremap <leader>ws <c-w>s
-" nnoremap <leader>wv <c-w>v
-" nnoremap <leader>wT <c-w>T
-map <silent> <C-h> :call functions#WinMove('h')<cr>
-map <silent> <C-j> :call functions#WinMove('j')<cr>
-map <silent> <C-k> :call functions#WinMove('k')<cr>
-map <silent> <C-l> :call functions#WinMove('l')<cr>
+nnoremap <leader>wc <c-w>c
+nnoremap <leader>wo <c-w>o
+nnoremap <leader>wx <c-w>x
+nnoremap <leader>wp <c-w>p
+nnoremap <leader>ws <c-w>s
+nnoremap <leader>wv <c-w>v
+nnoremap <leader>wT <c-w>T
+" map <silent> <C-h> :call functions#WinMove('h')<cr>
+" map <silent> <C-j> :call functions#WinMove('j')<cr>
+" map <silent> <C-k> :call functions#WinMove('k')<cr>
+" map <silent> <C-l> :call functions#WinMove('l')<cr>
 " map <silent> ˙ :call functions#WinMove('h')<cr>
 " map <silent> ∆ :call functions#WinMove('j')<cr>
 " map <silent> ˚ :call functions#WinMove('k')<cr>
@@ -177,6 +185,15 @@ map <silent> <C-l> :call functions#WinMove('l')<cr>
 " nnoremap <leader>w\ <c-w>t<c-w>H
 "nnoremap <leader>w| <c-w>t<c-w>H
 " nnoremap <leader>w/ <c-w>t<c-w>H
+
+" maps for moving between splits using vim-tmux-navigator plugin
+" see chris toomey github vim plugin vim-tmux-navigator (and corresponding maps in .tmux.conf)
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" disable navigation when pane is zoomed 
+let g:tmux_navigator_disable_when_zoomed = 1
 
 set hidden
 
@@ -260,6 +277,9 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <leader>t <c-_><c-_>
 vmap <leader>t <c-_><c-_>
 
+" toggle comment (vim-commentary)
+noremap <leader>c :Commentary<cr>
+
 " toggle NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
 
@@ -327,5 +347,30 @@ let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 " let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
 "
 
+" just disable this way of entering command window
+nnoremap q: :
+
 set novisualbell
 "set t_vb=
+
+" insert a timestamp, name, header
+noremap <F7> "=strftime("%c")<CR>P
+inoreabbrev idate <C-r>=strftime("%c")<CR>
+inoreabbrev iname Anthony Turvey
+inoreabbrev ihead  
+\<CR>
+\File:   <C-r>%<CR>
+\<CR>
+\Date:   <C-r>=strftime("%c")<CR><CR>
+\<CR>
+\Author: Anthony Turvey<CR>
+\<CR>
+
+
+" experiment with syntax off during diff mode
+"au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
+
+runtime macros/matchit.vim
+
+" stick a semicolon at the end of line while in insert mode
+inoremap ;; <C-o>m`<C-o>A;<C-o>``
