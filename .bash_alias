@@ -21,6 +21,7 @@ alias cls='clear'
 alias mv='mv -i'
 alias pu='pushd'
 alias po='popd'
+alias kon='konsole'
 
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

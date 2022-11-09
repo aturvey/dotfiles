@@ -326,4 +326,6 @@ let g:UltiSnipsEditSplit="<vertical>"
 let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 " let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
 "
-set visualbell
+
+set novisualbell
+"set t_vb=

@@ -45,8 +45,8 @@ if [ ${TERM} != "dumb" ]; then
   source ~/.git-prompt.sh
   export GIT_PS1_SHOWDIRTYSTATE=1
   #PS1='[\u@\[\e[01;37m\]\h\[\e[0m\]:\W]%\[\e[01;37m\]$(__git_ps1)\[\e[0m\] '
-  PS1='\[\e[01;31m\][\u@\h:\W]#\[\e[01;37m\]$(__git_ps1)\[\e[0m\] '
-  PS2='\[\e[01;31m\]> \[\e[0m\]'
+  PS1='\[\e[01;33m\][\u@\h:\W]%\[\e[01;37m\]$(__git_ps1)\[\e[0m\] '
+  PS2='\[\e[01;33m\]> \[\e[0m\]'
   ## evaluate the dircolors for ls
   eval $(dircolors ~/.dircolors)
   ## use with % ssh-add ~/.ssh/id_rsa
@@ -56,4 +56,20 @@ fi
 
 # Enable tab completion
 source ~/.git-completion.bash
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
