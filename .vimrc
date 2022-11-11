@@ -20,7 +20,6 @@ call vundle#begin()
     Plugin 'scrooloose/nerdtree'
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
-    Plugin 'tpope/vim-commentary'
     Plugin 'justinmk/vim-sneak'
     Plugin 'sjl/gundo.vim'
     Plugin 'sirver/ultisnips'
@@ -51,13 +50,11 @@ set statusline=%<%F%h%m%r%=%l,%02c\ \ 0x%02B\ \ %P
 
 " The mapping leader key
 let mapleader=","
-noremap \ ,
 " let maplocalleader="\\"
 
 " Note, you can find out the following guifont string by :set guifont?
 set guifont=MiscFixed\ 14
 "set guioptions=aegimLt
-
 
 set helplang=en
 set history=50
@@ -118,7 +115,6 @@ set nolazyredraw            " don't redraw while executing macros
 noremap <space> :set hlsearch! hlsearch?<cr>
 
 " set up tab behavior
-" set tabstop=8      " keep a standard hard tab
 set tabstop=4      " change standard tabstop from 8 to 4
 set softtabstop=4  " but our expandtab will use 4 spaces
 set shiftwidth=4   " and shifting will also be 4 spaces
@@ -129,16 +125,18 @@ set expandtab      " insert 'softtabstop' spaces for a tab
 nmap <leader>. <c-^>
 
 " scroll the viewport and cursor
-set scroll=3
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+" scroll the viewport but not cursor
+nnoremap <C-d> 3<C-d>
+nnoremap <C-u> 3<C-u>
 
 " gvim toolbar and scrollbar off
 set guioptions-=T  " turn off the toolbar
 set guioptions-=r  " turn off the right side scroll bar
 
-" we prefer numbered lines
+" numbered lines
 set number relativenumber numberwidth=3
 
 " map Y to y$ (yank to end of line)
@@ -163,29 +161,29 @@ nnoremap _ -
 nnoremap = >
 " vertical window size decrease
 nnoremap - <
-" nnoremap <leader>wc <c-w>c
-" nnoremap <leader>wo <c-w>o
-" nnoremap <leader>wx <c-w>x
-" nnoremap <leader>wp <c-w>p
-" nnoremap <leader>ws <c-w>s
-" nnoremap <leader>wv <c-w>v
-" nnoremap <leader>wT <c-w>T
+"   nnoremap <leader>wc <c-w>c
+"   nnoremap <leader>wo <c-w>o
+"   nnoremap <leader>wx <c-w>x
+"   nnoremap <leader>wp <c-w>p
+"   nnoremap <leader>ws <c-w>s
+"   nnoremap <leader>wv <c-w>v
+"   nnoremap <leader>wT <c-w>T
 " ctrl-key to move between splits
-" map <silent> <C-h> :call functions#WinMove('h')<cr>
-" map <silent> <C-j> :call functions#WinMove('j')<cr>
-" map <silent> <C-k> :call functions#WinMove('k')<cr>
-" map <silent> <C-l> :call functions#WinMove('l')<cr>
+"   map <silent> <C-h> :call functions#WinMove('h')<cr>
+"   map <silent> <C-j> :call functions#WinMove('j')<cr>
+"   map <silent> <C-k> :call functions#WinMove('k')<cr>
+"   map <silent> <C-l> :call functions#WinMove('l')<cr>
 " alt arrow keys to move between splits
-" map <silent> ˙ :call functions#WinMove('h')<cr>
-" map <silent> ∆ :call functions#WinMove('j')<cr>
-" map <silent> ˚ :call functions#WinMove('k')<cr>
-" map <silent> ¬ :call functions#WinMove('l')<cr>
-" " changes a vertical split to a horizontal split
-" nnoremap <leader>w- <c-w>t<c-w>K
+"   map <silent> ˙ :call functions#WinMove('h')<cr>
+"   map <silent> ∆ :call functions#WinMove('j')<cr>
+"   map <silent> ˚ :call functions#WinMove('k')<cr>
+"   map <silent> ¬ :call functions#WinMove('l')<cr>
+" changes a vertical split to a horizontal split
+"   nnoremap <leader>w- <c-w>t<c-w>K
 " changes a horizontal split to a vertical split
-" nnoremap <leader>w\ <c-w>t<c-w>H
-"nnoremap <leader>w| <c-w>t<c-w>H
-" nnoremap <leader>w/ <c-w>t<c-w>H
+"   nnoremap <leader>w\ <c-w>t<c-w>H
+"   nnoremap <leader>w| <c-w>t<c-w>H
+"   nnoremap <leader>w/ <c-w>t<c-w>H
 
 " maps for moving between splits using vim-tmux-navigator plugin
 " see chris toomey github vim plugin vim-tmux-navigator (and corresponding maps in .tmux.conf)
@@ -196,6 +194,7 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 " disable navigation when pane is zoomed 
 let g:tmux_navigator_disable_when_zoomed = 1
 
+" push unwritten file into buffer list when opening a new file before save
 set hidden
 
 " map jk to <esc> to easily bail out of insert or visual mode
@@ -212,9 +211,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " nnoremap <c-j> <c-e>
 " nnoremap <c-k> <c-y>
 
-" from Learning Vimscript: operate in next or last inner parens, braces, etc
+" from Learning Vimscript: operate in next or previous inner parens, braces, etc
 onoremap in( :<c-u>normal!f(vi(<cr>
-onoremap il( :<c-u>normal!F)vi(<cr>
+onoremap ip( :<c-u>normal!F)vi(<cr>
 
 " this makes the tab completion work more sensibly
 set  wildmode=longest,list
@@ -233,8 +232,8 @@ endfunction
 " from Practical Vim: moves through buffer list
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> ]B :bfirst<CR>
-nnoremap <silent> [B :blast<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 
 " from Practical Vim: (pg 95) Expand Active File Directory (also see vimcast episode 14)
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
@@ -243,8 +242,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
 " map <leader>ev :vsp <C-R>=expand("%:p:h")."/"<CR>
 " map <leader>et :tabe <C-R>=expand("%:p:h")."/"<CR>
 
-
-" from a website I found, does a dialog when :w, :q, :only, etc
+" dialog when :w, :q, :only, etc
 set confirm
 
 " ex command for toggling hex mode - define mapping if desired
@@ -262,7 +260,7 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 85
 
 " some tab navigation mappings, from https://goo.gl/e2Stn3
-" note: these are not working on macbook
+" note: these are not working on macbook unless shortcuts are unmapped in settings
    nnoremap <C-Left> :tabprevious<CR>
    nnoremap <C-Right> :tabnext<CR>
    nnoremap <silent> <C-Up> :execute 'silent! tabmove +1'<CR>
@@ -274,9 +272,6 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " remap for T-Comment, not sure why the norecursive map doesn't work here
 nmap <leader>t <c-_><c-_>
 vmap <leader>t <c-_><c-_>
-
-" toggle comment (vim-commentary)
-noremap <leader>c :Commentary<cr>
 
 " toggle NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
@@ -300,7 +295,7 @@ set foldlevel=1
 
 
 " vimux mappings -- only works when in tmux session
-nnoremap <leader>vv :VimuxRunCommand(" clear ; gcc -Wall -g -std=c99 -o test test.c ")<cr>
+nnoremap <leader>vv :VimuxRunCommand(" clear ; gcc -Wall -g -std=c99 -o fit fit.c ")<cr>
 nnoremap <leader>vg :VimuxRunCommand(" clear ; gcc -Wall -g -std=c99 -o test test.c ")<cr>
 nnoremap <leader>vt :VimuxRunCommand(" clear ; ctags *.c *.h")<cr>
 nnoremap <leader>vr :VimuxRunLastCommand<cr>
@@ -328,7 +323,7 @@ nnoremap <silent> <F9> :/\s\+$<CR>
 nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 " add gundo binding
-" nnoremap <F5> :GundoToggle<cr>
+nnoremap <F5> :GundoToggle<cr>
 
 " sneak bindings
 map f <Plug>Sneak_f
@@ -349,7 +344,7 @@ let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 nnoremap q: :
 
 " insert a timestamp, name, header
-noremap <F5> "=strftime("%c")<CR>P
+noremap <F7> "=strftime("%c")<CR>P
 inoreabbrev idate <C-r>=strftime("%c")<CR>
 inoreabbrev iname Anthony Turvey
 inoreabbrev ihead  
