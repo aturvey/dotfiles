@@ -1,18 +1,3 @@
-" move to the window in the direction shown, or create a new window
-function! functions#WinMove(key)
-    let t:curwin = winnr()
-    exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        if (match(a:key,'[jk]'))
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec "wincmd ".a:key
-    endif
-endfunction
-
-
 " helper function to toggle hex mode [From vim.wikia.com/wiki/Improved_hex_editing]
 function! functions#ToggleHex()
   " hex mode should be considered a read-only operation
