@@ -1,4 +1,5 @@
 version 6.0
+" Sat Nov 12 13:41:09 2022
 
 " set up plugins using Vundle
 " get help with :h vundle
@@ -127,14 +128,6 @@ set expandtab      " insert 'softtabstop' spaces for a tab
 " switch between current and last buffer
 nmap <leader>. <c-^>
 
-" scroll the viewport and cursor
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-
-" scroll the viewport but not cursor
-nnoremap <C-d> 3<C-d>
-nnoremap <C-u> 3<C-u>
-
 " gvim toolbar and scrollbar off
 set guioptions-=T  " turn off the toolbar
 set guioptions-=r  " turn off the right side scroll bar
@@ -171,32 +164,40 @@ nnoremap - <
 "   nnoremap <leader>ws <c-w>s
 "   nnoremap <leader>wv <c-w>v
 "   nnoremap <leader>wT <c-w>T
-" ctrl-key to move between splits
-"   map <silent> <C-h> :call functions#WinMove('h')<cr>
-"   map <silent> <C-j> :call functions#WinMove('j')<cr>
-"   map <silent> <C-k> :call functions#WinMove('k')<cr>
-"   map <silent> <C-l> :call functions#WinMove('l')<cr>
-" alt arrow keys to move between splits
-"   map <silent> ˙ :call functions#WinMove('h')<cr>
-"   map <silent> ∆ :call functions#WinMove('j')<cr>
-"   map <silent> ˚ :call functions#WinMove('k')<cr>
-"   map <silent> ¬ :call functions#WinMove('l')<cr>
-" changes a vertical split to a horizontal split
-"   nnoremap <leader>w- <c-w>t<c-w>K
-" changes a horizontal split to a vertical split
-"   nnoremap <leader>w\ <c-w>t<c-w>H
-"   nnoremap <leader>w| <c-w>t<c-w>H
-"   nnoremap <leader>w/ <c-w>t<c-w>H
+
+" scroll the viewport with cursor
+nnoremap <C-e> 1<C-e>
+nnoremap <C-y> 1<C-y>
+
+" scroll the viewport without cursor
+nnoremap <S-Up> 1<C-u>
+nnoremap <S-Down> 1<C-d>
+nnoremap K 1<C-u>
+nnoremap J 1<C-d>
+nnoremap <C-u> 1<C-u>
+nnoremap <C-d> 1<C-d>
 
 " maps for moving between splits using vim-tmux-navigator plugin
 " see chris toomey github vim plugin vim-tmux-navigator (and corresponding maps in .tmux.conf)
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-" disable navigation when pane is zoomed 
+nnoremap <silent> <C-Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-Right> :TmuxNavigateRight<cr>
+" disable navigation when pane is zoomed
 let g:tmux_navigator_disable_when_zoomed = 1
 
+" some tab navigation mappings, from https://goo.gl/e2Stn3
+" note: these are not working on macbook unless shortcuts are unmapped in settings
+   nnoremap H :tabprevious<CR>
+   nnoremap L :tabnext<CR>
+   nnoremap <S-Left> :tabprevious<CR>
+   nnoremap <S-Right> :tabnext<CR>
+"  nnoremap <silent> <S-Up> :execute 'silent! tabmove +1'<CR>
+"  nnoremap <silent> <S-Down> :execute 'silent! tabmove -1'<CR>
 " push unwritten file into buffer list when opening a new file before save
 set hidden
 
@@ -209,10 +210,6 @@ nnoremap <leader>ec :execute "vsplit! ~/.vim/colors/" . fnameescape(g:colors_nam
 nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
 nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" this lets me scroll the screen (not cursor) when in normal mode
-" nnoremap <c-j> <c-e>
-" nnoremap <c-k> <c-y>
 
 " from Learning Vimscript: operate in next or previous inner parens, braces, etc
 onoremap in( :<c-u>normal!f(vi(<cr>
@@ -258,12 +255,6 @@ let g:netrw_browse_split = 0
 let g:netrw_altv = 1
 let g:netrw_winsize = 85
 
-" some tab navigation mappings, from https://goo.gl/e2Stn3
-" note: these are not working on macbook unless shortcuts are unmapped in settings
-   nnoremap <C-Left> :tabprevious<CR>
-   nnoremap <C-Right> :tabnext<CR>
-   nnoremap <silent> <C-Up> :execute 'silent! tabmove +1'<CR>
-   nnoremap <silent> <C-Down> :execute 'silent! tabmove -1'<CR>
 
 " change pwd to that of currently edited file, and print where we ended up
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
@@ -278,7 +269,6 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 " this is a way to highlight the line with present cursor position
 set nocursorline
 nnoremap <leader>l :set cursorline!<CR>
-nnoremap <c-l> :set cursorline!<CR>
 
 " turn on some auto indent features for c programming
 syntax on
@@ -367,3 +357,20 @@ runtime macros/matchit.vim
 " this fixes the problem of accidental loss of undo capability when using Ctrl-U or Ctrl-W while in insert mode
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+" useful bindings to move selected region
+xnoremap <C-S-k> xkP`[V`]
+xnoremap <C-S-j> xp`[V`]
+xnoremap <C-S-l> >gv
+xnoremap <C-S-h> <gv
+
+
+
+
+
+
+
+
+
+
+

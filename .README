@@ -31,13 +31,12 @@ README: dotfile management with git
             % dot commit -m "message"
             % dot push origin
 
-        If you want to get a different version of some particular dotfile:
+        If you want to get a different commit version of some particular dotfile or folder, from either this or another branch:
 
-            % dot branch <whatever>                    // go to the branch where file is most likely to be
-            % dot logp                                 // see what we have available to get
-            % dot checkout <commit> -- <filename>      // get the particular file
-
-        If you want to restore that file to latest just do the same but use lastest commit hash (there's probably a better way)
+            % dot logp                               // find the interesting commit (on this branch)
+            % dot logp <branch>                      // find the interesting commit on <branch>
+            % dot checkout <commit> -- <filename>    // get the particular file by referencing first few chars of <commit> hash
+            % dot checkout <branch> -- <filename)    // get the latest committed <filename> from <branch>
 
     -----------------------------------------------------------------
     HOW TO SET UP FOR THE FIRST TIME EVER
