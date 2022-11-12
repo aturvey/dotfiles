@@ -24,7 +24,6 @@ call vundle#begin()
     Plugin 'sjl/gundo.vim'
     Plugin 'sirver/ultisnips'
     Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'JuliaEditorSupport/julia-vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -71,6 +70,10 @@ set window=33
 " vim: set ft=vim :
 
 set laststatus=2
+
+" how to handle sidescrolling for long (unwrapped) lines
+set sidescroll=1
+set sidescrolloff=10
 
 " need to let vim get xterm escape sequences for page and arrow
 " keys when running under tmux or gnu screen. echo $TERM to see
@@ -245,13 +248,10 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
 " dialog when :w, :q, :only, etc
 set confirm
 
-" ex command for toggling hex mode - define mapping if desired
-command! -bar Hexmode call ToggleHex()
-
 " toggle hex mode (see .vim/autoload/functions.vim)
-nnoremap <c-x> :functions#Hexmode<CR>
-" inoremap <c-x> <esc>:functions#Hexmode<CR>
-" vnoremap <c-u> :<c-u>functions#Hexmode<CR>
+" ex command for toggling hex mode - define mapping if desired
+command! -bar Hexmode call functions#ToggleHex()
+nnoremap <c-x> :Hexmode<CR>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -323,7 +323,7 @@ nnoremap <silent> <F9> :/\s\+$<CR>
 nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 " add gundo binding
-nnoremap <F5> :GundoToggle<cr>
+" nnoremap <F5> :GundoToggle<cr>
 
 " sneak bindings
 map f <Plug>Sneak_f
@@ -343,7 +343,7 @@ let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 " just disable this way of entering command window
 nnoremap q: :
 
-" insert a timestamp, name, header
+" insert a timestamp, name, header (note required whitespace after abbreviation
 noremap <F7> "=strftime("%c")<CR>P
 inoreabbrev idate <C-r>=strftime("%c")<CR>
 inoreabbrev iname Anthony Turvey
@@ -356,7 +356,6 @@ inoreabbrev ihead
 \Author: Anthony Turvey<CR>
 \<CR>
 
-
 " experiment with syntax off during diff mode
 "au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
 
@@ -364,3 +363,8 @@ runtime macros/matchit.vim
 
 " stick a semicolon at the end of line while in insert mode
 inoremap ;; <C-o>m`<C-o>A;<C-o>``
+
+" this fixes the problem of accidental loss of undo capability when using
+" Ctrl-U or Ctrl-W while in insert mode (forces a new undo block)
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
