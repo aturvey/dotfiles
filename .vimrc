@@ -194,7 +194,7 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-" disable navigation when pane is zoomed 
+" disable navigation when pane is zoomed
 let g:tmux_navigator_disable_when_zoomed = 1
 
 " push unwritten file into buffer list when opening a new file before save
@@ -279,6 +279,7 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 " this is a way to highlight the line with present cursor position
 set nocursorline
 nnoremap <leader>l :set cursorline!<CR>
+nnoremap <c-l> :set cursorline!<CR>
 
 " turn on some auto indent features for c programming
 syntax on
@@ -343,12 +344,11 @@ let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 " just disable this way of entering command window
 nnoremap q: :
 
-" insert a timestamp, name, header (note required whitespace after abbreviation
+" insert a timestamp, name, header (whitespace is req'd after abbreviation)
 noremap <F7> "=strftime("%c")<CR>P
 inoreabbrev idate <C-r>=strftime("%c")<CR>
 inoreabbrev iname Anthony Turvey
-inoreabbrev ihead  
-\<CR>
+inoreabbrev ihead <CR>
 \File:   <C-r>%<CR>
 \<CR>
 \Date:   <C-r>=strftime("%c")<CR><CR>
@@ -361,8 +361,9 @@ inoreabbrev ihead
 
 runtime macros/matchit.vim
 
-" stick a semicolon at the end of line while in insert mode
+" stick a semicolon at the end of line
 inoremap ;; <C-o>m`<C-o>A;<C-o>``
+nnoremap ;; m`A;<ESC>``
 
 " this fixes the problem of accidental loss of undo capability when using
 " Ctrl-U or Ctrl-W while in insert mode (forces a new undo block)
