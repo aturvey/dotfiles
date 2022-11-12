@@ -101,6 +101,10 @@ set nowrap
 set linebreak
 set textwidth=0
 set wrapmargin=0
+" turn off formatting of comments, and no need to auto insert the leader (help:fo-table)
+set formatoptions-=co
+" turn on auto insertion of comment leader at <CR> when insert mode in comment block
+set formatoptions+=r
 set sidescroll=1
 set scrolloff=2    " minimum of three lines above and below cursor
 
@@ -355,9 +359,10 @@ inoreabbrev ihead <CR>
 
 runtime macros/matchit.vim
 
-" stick a semicolon at the end of line while in insert mode;
-inoremap ;; <C-o>m`<C-o>A;<C-o>``
-nnoremap ;; m`A;<ESC>``
+" stick a semicolon at the end of line while in insert mode. Note: this can
+" interfere with insert mode
+" inoremap ;; <C-o>m`<C-o>A;<C-o>``
+" nnoremap ;; m`A;<ESC>``
 
 " this fixes the problem of accidental loss of undo capability when using Ctrl-U or Ctrl-W while in insert mode
 inoremap <c-u> <c-g>u<c-u>
