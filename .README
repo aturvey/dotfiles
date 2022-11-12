@@ -1,0 +1,119 @@
+README: dotfile management with git
+
+    From Hacker News thread, reposted by Atlassian:
+        https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
+
+    -----------------------------------------------------------------
+    MAINTAIN A SYSTEM ALREADY SET UP (FOR EXAMPLE ON MACBOOK BRANCH):
+    -----------------------------------------------------------------
+
+        Assumes the alias is already set up, and the bare repo exists (see below for setup instructions):
+
+            % alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
+            % dot fetch origin           // update remote branches as required
+            % dot branch -avv            // see all the branches
+            % dot checkout <branch>      // get on the branch you want
+            % dot pull origin <branch>   // to update (merge) local branch with repo, if required
+
+        To show dotfiles being tracked:
+
+            % dot ls-files
+
+        To show dotfile status relative to repo
+
+            % dot stat
+
+        If you want to make a changes to some dotfile and push it up (make sure to be on the right branch first):
+
+            % vim <.whatever>
+            % dot add <.whatever>
+            % dot commit -m "message"
+            % dot push origin
+
+        If you want to get a different version of some particular dotfile:
+
+            % dot branch <whatever>                    // go to the branch where file is most likely to be
+            % dot logp                                 // see what we have available to get
+            % dot checkout <commit> -- <filename>      // get the particular file
+
+        If you want to restore that file to latest just do the same but use lastest commit hash (there's probably a better way)
+
+    -----------------------------------------------------------------
+    HOW TO SET UP FOR THE FIRST TIME EVER
+    -----------------------------------------------------------------
+
+        First add the alias as above (because in this application we need 'git' command to use some extra flags that separate
+        the bare repo from the worktree, and it's a pain to type each time).
+
+        Next, set up the bare repo directory, and add this folder to .gitignore_global file
+
+            % git init --bare $HOME/.dotfiles
+            % echo ".dotfiles" >> .gitignore_global
+
+        Next fix it so that only tracked files show up in the aliased git ('dot') stat:
+
+            % dot config --local status.showUntrackedFiles no
+
+        That's it. Now just add files to be tracked.
+
+            % dot add .bashrc
+            % dot add .vimrc
+            % dot add .vim/colors
+            % dot add .vim/autoload
+            etc...
+
+            % dot stat
+            % dot commit -m "message"
+            % dot ls-files
+            % dot remote add origin git@github.com:aturvey/dotfiles.git
+
+        We do need to deconflict differences between various host machine types. So we manage this with host specific branches.
+        So for example,
+
+            % dot checkout -b macbook
+            % vim <mac specific changes>
+            % dot add <changes>
+            % dot commit -m "message"
+            % dot push origin -u macbook 
+
+    -----------------------------------------------------------------
+    HOW TO REPLICATE ON A NEW HOST
+    -----------------------------------------------------------------
+
+        Make (or clone) the bare repo
+
+            % git clone --separate-git-dir=$HOME/.dotfiles git@github.com:aturvey/dotfiles.git $HOME/temp
+            % rm -rf temp
+
+        -- or --
+
+            % git clone --separate-git-dir=$HOME/.dotfiles https://github.com/aturvey/dotfiles.git $HOME/temp
+            % rm -rf temp
+
+        Then make alias as above, and put '.dotfiles' folder into .gitignore_global file. 
+
+            % alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+            % echo .dotfiles >> .gitignore_global
+
+        also remember to do this, so we don't see everything in the file system on dot status command:
+
+            % dot config --local status.showUntrackedFiles no
+
+        Then get the dotfiles as explained above (but replicated here for convenience):
+
+            % dot fetch origin           // update remote branches as required
+            % dot branch -avv            // see all the branches
+            % dot checkout <branch>      // get on the branch you want
+
+        It might refuse to do this because there are existing dotfiles that have not been commited or checked in (nor do we
+        want them checked in). So I usually just delete them, or move them to some junk temp folder, and then do the checkout.
+
+        After the checkout, you can purge all the 'changes' that appear locally because of existing junk you want to overwrite:
+
+            % dot reset --hard
+
+        The temp directory above is only needed to prevent the repo dotfiles from clobbering any existing ones. You don't need
+        the temp directory if all previously existing tracked files in $HOME are nondot lsexistant or backed up. If they are 
+        existing, then you need to manage diff between them and those that come in from repo. Once they are properly merged and
+        commited then it's easy to manage going forward.
