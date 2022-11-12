@@ -204,11 +204,11 @@ set hidden
 " map jk to <esc> to easily bail out of insert or visual mode
 inoremap jk <esc>
 
-" this is a mapping to edit and source (read) the .vimrc file
-nnoremap <leader>ev :vsplit! $MYVIMRC<cr>
-nnoremap <leader>ec :execute "vsplit! ~/.vim/colors/" . fnameescape(g:colors_name) . ".vim"<cr>
-nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
-nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
+" this is a mapping to conveniently 'get' certain config files
+nnoremap <leader>gv :vsplit! $MYVIMRC<cr>
+nnoremap <leader>gc :execute "vsplit! ~/.vim/colors/" . fnameescape(g:colors_name) . ".vim"<cr>
+nnoremap <leader>gg :vsplit! ~/.gitconfig<cr>
+nnoremap <leader>gt :vsplit! ~/.tmux.conf<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " from Learning Vimscript: operate in next or previous inner parens, braces, etc
@@ -237,10 +237,10 @@ nnoremap <silent> ]B :blast<CR>
 
 " from Practical Vim: (pg 95) Expand Active File Directory (also see vimcast episode 14)
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
-" map <leader>ew :e <C-R>=expand("%:p:h")."/"<CR>
-" map <leader>es :sp <C-R>=expand("%:p:h")."/"<CR>
-" map <leader>ev :vsp <C-R>=expand("%:p:h")."/"<CR>
-" map <leader>et :tabe <C-R>=expand("%:p:h")."/"<CR>
+nnoremap <leader>ew :e <C-R>=expand("%:p:h")."/"<CR>
+nnoremap <leader>es :sp <C-R>=expand("%:p:h")."/"<CR>
+nnoremap <leader>ev :vsp <C-R>=expand("%:p:h")."/"<CR>
+nnoremap <leader>et :tabe <C-R>=expand("%:p:h")."/"<CR>
 
 " dialog when :w, :q, :only, etc
 set confirm
@@ -257,7 +257,7 @@ let g:netrw_winsize = 85
 
 
 " change pwd to that of currently edited file, and print where we ended up
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>% :cd %:p:h<CR>:pwd<CR>
 
 " remap for T-Comment, not sure why the norecursive map doesn't work here
 nmap <leader>t <c-_><c-_>
@@ -267,8 +267,8 @@ vmap <leader>t <c-_><c-_>
 nnoremap <leader>n :NERDTreeToggle<cr>
 
 " this is a way to highlight the line with present cursor position
-set nocursorline
-nnoremap <leader>l :set cursorline!<CR>
+set cursorline
+nnoremap <leader>c :set cursorline!<CR>
 
 " turn on some auto indent features for c programming
 syntax on
