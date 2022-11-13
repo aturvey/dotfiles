@@ -3,8 +3,6 @@
 	excludesfile = /Users/aturvey/.gitignore_global
 [push]
 	default = simple
-[credential]
-	helper = osxkeychain
 [user]
 	name = Anthony Turvey
 	email = anthony.turvey@gmail.com
@@ -18,10 +16,9 @@
 	last = log -1 HEAD --stat
 	logp = log --pretty=oneline
 	logs = log --stat
-	logg = log --pretty=format:\\\" %h  %s\\\" --graph
-	br = branch
-	ch = checkout
-	co = commit
+	logg = log --pretty=format:\" %h  %s\" --graph
+	br = branch -avv
+	co = checkout
 	df = diff
 	dt = difftool
 [diff]
