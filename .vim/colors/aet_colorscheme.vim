@@ -74,7 +74,7 @@ highlight Statement                 guifg=#9e9e9e ctermfg=247  gui=NONE cterm=NO
 highlight String                    guifg=#d7af5f ctermfg=179
 highlight Title                     guifg=#FFFFFF ctermfg=15
 highlight Type                      guifg=#FFFFFF ctermfg=15  gui=NONE cterm=NONE
-highlight Visual                    guibg=#880000 ctermfg=none ctermbg=88
+highlight Visual                    guibg=#880000 ctermfg=none ctermbg=52
 
 highlight DiffAdd                   guifg=#E6E1DC ctermfg=7    guibg=#519F50 ctermbg=71
 highlight DiffDelete                guifg=#E6E1DC ctermfg=7    guibg=#660000 ctermbg=52
@@ -134,7 +134,7 @@ highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
 " ORANGE sneak
   " highlight Sneak                     ctermfg=208 ctermbg=0 cterm=underline
 " GREY sneak 
-  highlight Sneak                     guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=88 gui=italic cterm=underline
+  highlight Sneak                     guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=52 gui=italic cterm=underline
 
 " YELLOW search
   " highlight Search                    guifg=NONE    ctermfg=207 guibg=#262626 ctermbg=0 gui=italic cterm=underline
@@ -143,4 +143,4 @@ highlight Title                     ctermfg=100   ctermbg=0 cterm=underline
 " ORANGE search
   " highlight Search                    guifg=NONE    ctermfg=208 guibg=#262626 ctermbg=0 gui=italic cterm=underline
 " GREY search
-  highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=88 gui=italic cterm=underline
+  highlight Search                    guifg=NONE    ctermfg=NONE guibg=#262626 ctermbg=52 gui=italic cterm=underline
