@@ -267,7 +267,7 @@ vmap <leader>t <c-_><c-_>
 nnoremap <leader>n :NERDTreeToggle<cr>
 
 " this is a way to highlight the line with present cursor position
-set cursorline
+set nocursorline
 nnoremap <leader>c :set cursorline!<CR>
 
 " turn on some auto indent features for c programming
