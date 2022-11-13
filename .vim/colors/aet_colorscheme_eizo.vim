@@ -38,7 +38,7 @@ hi clear
    syntax reset
  endif
 
-let g:colors_name = "aet_colorscheme"
+let g:colors_name = "aet_colorscheme_eizo"
 
 hi link htmlTag                     xmlTag
 hi link htmlTagName                 xmlTagName
@@ -56,7 +56,7 @@ highlight Normal                    guifg=#9e9e9e ctermfg=247  guibg=#000000 cte
 highlight Cursor                    guifg=#000000 ctermfg=0    guibg=#FFFFFF ctermbg=160
 highlight CursorLine                guibg=#000000 ctermbg=234  cterm=NONE
 
-highlight Comment                   guifg=#00d7ff ctermfg=45   gui=italic
+highlight Comment                   guifg=#00d7ff ctermfg=38   gui=italic
 highlight Constant                  guifg=#6D9CBE ctermfg=73
 highlight Define                    guifg=#CC7833 ctermfg=173
 highlight Error                     guifg=#FFC66D ctermfg=221  guibg=#990000 ctermbg=0 ctermfg=1

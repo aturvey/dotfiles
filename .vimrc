@@ -94,7 +94,7 @@ set t_Co=256
 if has("macunix")
     color aet_mac
 else
-    color aet_colorscheme
+    color aet_colorscheme_eizo
     " color aet_eizo
 endif
 
