@@ -1,4 +1,5 @@
 version 6.0
+" Sat Nov 12 13:41:09 2022
 
 " set up plugins using Vundle
 " get help with :h vundle
@@ -38,18 +39,19 @@ let &cpo=s:cpo_save
 unlet s:cpo_save
 
 set background=dark
+" allow backspace over indent, across line breaks, and beyond start of recent insert
 set backspace=indent,eol,start
 set fileencodings=utf-8,default,latin1
 
 " this sets timeout between keys for mappings and keycodes
 :set timeout timeoutlen=1200 ttimeoutlen=100
 
-" set an improved status line
+" set an improved status line, and laststatus=2 means always present
 set statusline=%<%F%h%m%r%=%l,%02c\ \ 0x%02B\ \ %P
+set laststatus=2
 
 " The mapping leader key
 let mapleader=","
-" let maplocalleader="\\"
 
 " Note, you can find out the following guifont string by :set guifont?
 set guifont=MiscFixed\ 14
@@ -69,11 +71,6 @@ set termencoding=utf-8
 set window=33
 " vim: set ft=vim :
 
-set laststatus=2
-
-" how to handle sidescrolling for long (unwrapped) lines
-set sidescroll=1
-set sidescrolloff=10
 
 " need to let vim get xterm escape sequences for page and arrow
 " keys when running under tmux or gnu screen. echo $TERM to see
@@ -97,7 +94,7 @@ set t_Co=256
 if has("macunix")
     color aet_mac
 else
-    color aet_dell
+    color aet_colorscheme
     " color aet_eizo
 endif
 
@@ -105,6 +102,10 @@ set nowrap
 set linebreak
 set textwidth=0
 set wrapmargin=0
+" turn off formatting of comments, and no need to auto insert the leader (help:fo-table)
+set formatoptions-=co
+" turn on auto insertion of comment leader at <CR> when insert mode in comment block
+set formatoptions+=r
 set sidescroll=1
 set scrolloff=2    " minimum of three lines above and below cursor
 
@@ -126,14 +127,6 @@ set expandtab      " insert 'softtabstop' spaces for a tab
 
 " switch between current and last buffer
 nmap <leader>. <c-^>
-
-" scroll the viewport and cursor
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-
-" scroll the viewport but not cursor
-nnoremap <C-d> 3<C-d>
-nnoremap <C-u> 3<C-u>
 
 " gvim toolbar and scrollbar off
 set guioptions-=T  " turn off the toolbar
@@ -171,48 +164,52 @@ nnoremap - <
 "   nnoremap <leader>ws <c-w>s
 "   nnoremap <leader>wv <c-w>v
 "   nnoremap <leader>wT <c-w>T
-" ctrl-key to move between splits
-"   map <silent> <C-h> :call functions#WinMove('h')<cr>
-"   map <silent> <C-j> :call functions#WinMove('j')<cr>
-"   map <silent> <C-k> :call functions#WinMove('k')<cr>
-"   map <silent> <C-l> :call functions#WinMove('l')<cr>
-" alt arrow keys to move between splits
-"   map <silent> ˙ :call functions#WinMove('h')<cr>
-"   map <silent> ∆ :call functions#WinMove('j')<cr>
-"   map <silent> ˚ :call functions#WinMove('k')<cr>
-"   map <silent> ¬ :call functions#WinMove('l')<cr>
-" changes a vertical split to a horizontal split
-"   nnoremap <leader>w- <c-w>t<c-w>K
-" changes a horizontal split to a vertical split
-"   nnoremap <leader>w\ <c-w>t<c-w>H
-"   nnoremap <leader>w| <c-w>t<c-w>H
-"   nnoremap <leader>w/ <c-w>t<c-w>H
+
+" scroll the viewport with cursor
+nnoremap <C-e> 1<C-e>
+nnoremap <C-y> 1<C-y>
+
+" scroll the viewport without cursor
+nnoremap <S-Up> 1<C-u>
+nnoremap <S-Down> 1<C-d>
+nnoremap K 1<C-u>
+nnoremap J 1<C-d>
+nnoremap <C-u> 1<C-u>
+nnoremap <C-d> 1<C-d>
 
 " maps for moving between splits using vim-tmux-navigator plugin
 " see chris toomey github vim plugin vim-tmux-navigator (and corresponding maps in .tmux.conf)
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-Right> :TmuxNavigateRight<cr>
 " disable navigation when pane is zoomed
 let g:tmux_navigator_disable_when_zoomed = 1
 
+" some tab navigation mappings, from https://goo.gl/e2Stn3
+" note: these are not working on macbook unless shortcuts are unmapped in settings
+   nnoremap H :tabprevious<CR>
+   nnoremap L :tabnext<CR>
+   nnoremap <S-Left> :tabprevious<CR>
+   nnoremap <S-Right> :tabnext<CR>
+"  nnoremap <silent> <S-Up> :execute 'silent! tabmove +1'<CR>
+"  nnoremap <silent> <S-Down> :execute 'silent! tabmove -1'<CR>
 " push unwritten file into buffer list when opening a new file before save
 set hidden
 
 " map jk to <esc> to easily bail out of insert or visual mode
 inoremap jk <esc>
 
-" this is a mapping to edit and source (read) the .vimrc file
-nnoremap <leader>ev :vsplit! $MYVIMRC<cr>
-nnoremap <leader>ec :execute "vsplit! ~/.vim/colors/" . fnameescape(g:colors_name) . ".vim"<cr>
-nnoremap <leader>eg :vsplit! ~/.gitconfig<cr>
-nnoremap <leader>et :vsplit! ~/.tmux.conf<cr>
+" this is a mapping to conveniently 'get' certain config files
+nnoremap <leader>gv :vsplit! $MYVIMRC<cr>
+nnoremap <leader>gc :execute "vsplit! ~/.vim/colors/" . fnameescape(g:colors_name) . ".vim"<cr>
+nnoremap <leader>gg :vsplit! ~/.gitconfig<cr>
+nnoremap <leader>gt :vsplit! ~/.tmux.conf<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" this lets me scroll the screen (not cursor) when in normal mode
-" nnoremap <c-j> <c-e>
-" nnoremap <c-k> <c-y>
 
 " from Learning Vimscript: operate in next or previous inner parens, braces, etc
 onoremap in( :<c-u>normal!f(vi(<cr>
@@ -240,16 +237,15 @@ nnoremap <silent> ]B :blast<CR>
 
 " from Practical Vim: (pg 95) Expand Active File Directory (also see vimcast episode 14)
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
-" map <leader>ew :e <C-R>=expand("%:p:h")."/"<CR>
-" map <leader>es :sp <C-R>=expand("%:p:h")."/"<CR>
-" map <leader>ev :vsp <C-R>=expand("%:p:h")."/"<CR>
-" map <leader>et :tabe <C-R>=expand("%:p:h")."/"<CR>
+nnoremap <leader>ew :e <C-R>=expand("%:p:h")."/"<CR>
+nnoremap <leader>es :sp <C-R>=expand("%:p:h")."/"<CR>
+nnoremap <leader>ev :vsp <C-R>=expand("%:p:h")."/"<CR>
+nnoremap <leader>et :tabe <C-R>=expand("%:p:h")."/"<CR>
 
 " dialog when :w, :q, :only, etc
 set confirm
 
-" toggle hex mode (see .vim/autoload/functions.vim)
-" ex command for toggling hex mode - define mapping if desired
+" new ex command for toggling hex mode - and define key map (see .vim/autoload/functions.vim)
 command! -bar Hexmode call functions#ToggleHex()
 nnoremap <c-x> :Hexmode<CR>
 
@@ -259,15 +255,9 @@ let g:netrw_browse_split = 0
 let g:netrw_altv = 1
 let g:netrw_winsize = 85
 
-" some tab navigation mappings, from https://goo.gl/e2Stn3
-" note: these are not working on macbook unless shortcuts are unmapped in settings
-   nnoremap <C-Left> :tabprevious<CR>
-   nnoremap <C-Right> :tabnext<CR>
-   nnoremap <silent> <C-Up> :execute 'silent! tabmove +1'<CR>
-   nnoremap <silent> <C-Down> :execute 'silent! tabmove -1'<CR>
 
 " change pwd to that of currently edited file, and print where we ended up
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>% :cd %:p:h<CR>:pwd<CR>
 
 " remap for T-Comment, not sure why the norecursive map doesn't work here
 nmap <leader>t <c-_><c-_>
@@ -277,16 +267,14 @@ vmap <leader>t <c-_><c-_>
 nnoremap <leader>n :NERDTreeToggle<cr>
 
 " this is a way to highlight the line with present cursor position
-set nocursorline
-nnoremap <leader>l :set cursorline!<CR>
-nnoremap <c-l> :set cursorline!<CR>
+set cursorline
+nnoremap <leader>c :set cursorline!<CR>
 
 " turn on some auto indent features for c programming
 syntax on
 set autoindent
 set cindent
 inoremap {<CR>  {<CR><BS>}<Esc>O
-
 
 " code folding settings
 set foldmethod=syntax       " fold based on indent
@@ -324,7 +312,7 @@ nnoremap <silent> <F9> :/\s\+$<CR>
 nnoremap <silent> <F10> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 " add gundo binding
-" nnoremap <F5> :GundoToggle<cr>
+nnoremap <F5> :GundoToggle<cr>
 
 " sneak bindings
 map f <Plug>Sneak_f
@@ -344,7 +332,7 @@ let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 " just disable this way of entering command window
 nnoremap q: :
 
-" insert a timestamp, name, header (whitespace is req'd after abbreviation)
+" insert a timestamp, name, header (whitespace is req'd after abbreviations)
 noremap <F7> "=strftime("%c")<CR>P
 inoreabbrev idate <C-r>=strftime("%c")<CR>
 inoreabbrev iname Anthony Turvey
@@ -361,11 +349,28 @@ inoreabbrev ihead <CR>
 
 runtime macros/matchit.vim
 
-" stick a semicolon at the end of line
-inoremap ;; <C-o>m`<C-o>A;<C-o>``
-nnoremap ;; m`A;<ESC>``
+" stick a semicolon at the end of line while in insert mode. Note: this can
+" interfere with insert mode
+" inoremap ;; <C-o>m`<C-o>A;<C-o>``
+" nnoremap ;; m`A;<ESC>``
 
-" this fixes the problem of accidental loss of undo capability when using
-" Ctrl-U or Ctrl-W while in insert mode (forces a new undo block)
+" this fixes the problem of accidental loss of undo capability when using Ctrl-U or Ctrl-W while in insert mode
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+" useful bindings to move selected region
+xnoremap <C-S-k> xkP`[V`]
+xnoremap <C-S-j> xp`[V`]
+xnoremap <C-S-l> >gv
+xnoremap <C-S-h> <gv
+
+
+
+
+
+
+
+
+
+
+
