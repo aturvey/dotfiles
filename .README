@@ -40,10 +40,9 @@ Sat Nov 12 16:10:21 2022
 
         If you want to get a different commit version of some particular dotfile or folder, from either this or another branch:
 
-            % dot logp                               // find the interesting commit (on this branch)
-            % dot logp <branch>                      // find the interesting commit on <branch>
+            % dot logp [<branch>]                    // find the interesting commit on this (or whatever) branch
             % dot checkout <commit> -- <filename>    // get the particular file by referencing first few chars of <commit> hash
-            % dot checkout <branch> -- <filename)    // get the latest committed <filename> from <branch>
+            % dot checkout <branch> -- <filename>    // get the latest committed <filename> from <branch>
 
     -----------------------------------------------------------------
     HOW TO SET UP FOR THE FIRST TIME EVER
