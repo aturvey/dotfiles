@@ -205,10 +205,11 @@ set hidden
 inoremap jk <esc>
 
 " this is a mapping to conveniently 'get' certain config files
-nnoremap <leader>gv :vsplit! $MYVIMRC<cr>
-nnoremap <leader>gc :execute "vsplit! ~/.vim/colors/" . fnameescape(g:colors_name) . ".vim"<cr>
-nnoremap <leader>gg :vsplit! ~/.gitconfig<cr>
-nnoremap <leader>gt :vsplit! ~/.tmux.conf<cr>
+" nnoremap <leader>gv :vsplit! $MYVIMRC<cr>
+nnoremap <leader>gv :$tabnew $MYVIMRC<cr>
+nnoremap <leader>gc :execute "$tabnew ~/.vim/colors/" . fnameescape(g:colors_name) . ".vim"<cr>
+nnoremap <leader>gg :$tabnew ~/.gitconfig<cr>
+nnoremap <leader>gt :$tabnew ~/.tmux.conf<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " from Learning Vimscript: operate in next or previous inner parens, braces, etc
@@ -240,7 +241,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
 nnoremap <leader>ew :e <C-R>=expand("%:p:h")."/"<CR>
 nnoremap <leader>es :sp <C-R>=expand("%:p:h")."/"<CR>
 nnoremap <leader>ev :vsp <C-R>=expand("%:p:h")."/"<CR>
-nnoremap <leader>et :tabe <C-R>=expand("%:p:h")."/"<CR>
+nnoremap <leader>et :tabnew <C-R>=expand("%:p:h")."/"<CR>
 
 " dialog when :w, :q, :only, etc
 set confirm
