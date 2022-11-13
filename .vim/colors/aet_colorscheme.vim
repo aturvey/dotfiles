@@ -54,7 +54,7 @@ highlight StatusLineNC              guifg=#303030 ctermfg=234  guibg=#949494 cte
 
 highlight Normal                    guifg=#9e9e9e ctermfg=247  guibg=#000000 ctermbg=0
 highlight Cursor                    guifg=#000000 ctermfg=0    guibg=#FFFFFF ctermbg=160
-highlight CursorLine                guibg=#000000 ctermbg=232  cterm=NONE
+highlight CursorLine                guibg=#000000 ctermbg=234  cterm=NONE
 
 highlight Comment                   guifg=#00d7ff ctermfg=45   gui=italic
 highlight Constant                  guifg=#6D9CBE ctermfg=73

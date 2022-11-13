@@ -10,6 +10,12 @@ Sat Nov 12 16:10:21 2022
 
         Assumes the 'dot' alias is already set up, and the bare repo exists (see below for setup instructions):
 
+        To checkout (or create) a local branch that is tracking with one of the remote branches:
+
+            % dot checkout -b <branch> origin/<branch>     // this opens a local branch that tracks origin/branch
+            % dot checkout --track origin/<branch>         // same thing but with the --track shortcut
+            % dot checkout <branch>                        // same thing again but only if there is no ambiguity with remotes
+
         To sync up a particular local branch to the latest corresponding remote:
 
             % dot fetch origin [branch]   // sync up the local remote-tracking branch(es) to remote
