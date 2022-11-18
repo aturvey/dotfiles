@@ -48,8 +48,8 @@ if [ ${TERM} != "dumb" ]; then
   PS1='\[\e[01;33m\][\u@\h:\W]%\[\e[01;37m\]$(__git_ps1)\[\e[0m\] '
   PS2='\[\e[01;33m\]> \[\e[0m\]'
   ## evaluate the dircolors for ls
-  eval $(gdircolors ~/.dircolors)
-  eval $(ssh-agent)
+  # eval $(gdircolors ~/.dircolors)
+  # eval $(ssh-agent)
   ## use with % ssh-add ~/.ssh/id_rsa
 fi
 
