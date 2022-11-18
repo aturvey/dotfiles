@@ -51,6 +51,28 @@ Sat Nov 12 16:10:21 2022
             % dot checkout <branch> -- <filename>    // get the latest committed <filename> from <branch>
 
     -----------------------------------------------------------------
+    HOW TO UNDO THINGS
+    -----------------------------------------------------------------
+
+        To remove file changes before they've been staged
+            
+            % dot restore <filename>
+
+        To unstage and remove changes after they've been staged
+
+            % dot restore --staged <filename>
+
+        To roll backward from a local commit (this will not reset changes from that commit)
+
+            % dot reset --soft HEAD~
+
+        To roll backward to <hash> from a commit that was mistakenly pushed to origin (note
+        this wil actually make a new commit on top of the latest but using previous state. So
+        this fresh rollback will then need to be pushed)
+
+            % dot revert <hash> --no-edit 
+
+    -----------------------------------------------------------------
     HOW TO SET UP FOR THE FIRST TIME EVER
     -----------------------------------------------------------------
 
