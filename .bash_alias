@@ -1,0 +1,28 @@
+#
+# File: .bash_alias
+#   Alias definitions for .bashrc file
+#
+# Created on: Thu Dec 29 17:29:09 2011
+#
+
+##  Session alias statements 
+alias ls='ls --color'
+alias la='ls -a --color'
+alias ll='ls -l --color'
+alias lla='ls -la --color'
+alias llr='ls -lrt --color'
+alias llar='ls -lart --color'
+alias du='du -k'
+alias df='df -k'
+#function em() { xemacs 2>/dev/null "$@" & }
+alias where='echo $HOST'
+alias cp='cp -ip'
+alias cls='clear'
+alias mv='mv -i'
+alias pu='pushd'
+alias po='popd'
+alias kon='konsole'
+
+## alias for managing dotfile configuration
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
