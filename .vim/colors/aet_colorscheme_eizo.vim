@@ -52,7 +52,7 @@ highlight VertSplit                 guifg=#303030 ctermfg=234  guibg=#8a8a8a cte
 highlight StatusLine                guifg=#303030 ctermfg=234  guibg=#ffff00 ctermbg=226 gui=reverse cterm=reverse term=reverse
 highlight StatusLineNC              guifg=#303030 ctermfg=234  guibg=#949494 ctermbg=246
 
-highlight Normal                    guifg=#9e9e9e ctermfg=247  guibg=#000000 ctermbg=0
+highlight Normal                    guifg=#9e9e9e ctermfg=250  guibg=#000000 ctermbg=0
 highlight Cursor                    guifg=#000000 ctermfg=0    guibg=#FFFFFF ctermbg=160
 highlight CursorLine                guibg=#000000 ctermbg=234  cterm=NONE
 
