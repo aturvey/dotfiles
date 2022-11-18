@@ -21,6 +21,7 @@
 	co = checkout
 	df = diff
 	dt = difftool
+	ls = ls-files
 [diff]
 	tool = vimdiff
 	conflictstyle = diff3
