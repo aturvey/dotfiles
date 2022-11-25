@@ -1,0 +1,6 @@
+# We're here because apparently this is a login shell. Run .bashrc only if it is interactive
+if [ -n "$BASH_VERSION" -a -n "$PS1" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
