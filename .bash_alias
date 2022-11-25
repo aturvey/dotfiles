@@ -23,6 +23,7 @@ alias pu='pushd'
 alias po='popd'
 alias kon='konsole'
 alias cds='virtuoso &'
+alias cd='cd -P'
 
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
