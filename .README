@@ -24,6 +24,10 @@ Sat Nov 12 16:10:21 2022
             % dot checkout <branch>       // get on the local branch you want to update
             % dot merge origin/<branch>   // merge remote branch into the presently checked out local branch
 
+        To sync up a particular local branch to the latest corresponding remote, but without checking out that local:
+
+            % dot fetch origin macbook:macbook  // this can only be done if local br macbook can fast forward from remote macbook
+
         To show dotfiles being tracked:
 
             % dot ls-files
