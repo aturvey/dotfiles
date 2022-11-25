@@ -14,7 +14,7 @@
 	stat = status -s
 	unstage = reset HEAD --
 	last = log -1 HEAD --stat
-	logp = log --pretty=oneline
+	logp = log --pretty=oneline -n 20
 	logs = log --stat
 	logg = log --pretty=format:\" %h  %s\" --graph
 	br = branch -avv
