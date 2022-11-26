@@ -14,13 +14,14 @@
 	stat = status -s
 	unstage = reset HEAD --
 	last = log -1 HEAD --stat
-	logp = log --pretty=oneline
+	logp = log --pretty=oneline -n 25
 	logs = log --stat
 	logg = log --pretty=format:\" %h  %s\" --graph
 	br = branch
 	co = checkout
 	df = diff
 	dt = difftool
+	ls = ls-files
 [diff]
 	tool = vimdiff
 	conflictstyle = diff3

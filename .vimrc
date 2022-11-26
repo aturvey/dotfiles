@@ -215,6 +215,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " from Learning Vimscript: operate in next or previous inner parens, braces, etc
 onoremap in( :<c-u>normal!f(vi(<cr>
 onoremap ip( :<c-u>normal!F)vi(<cr>
+onoremap in[ :<c-u>normal!f[vi[<cr>
+onoremap ip] :<c-u>normal!F]vi]<cr>
+onoremap in{ :<c-u>normal!f{vi{<cr>
+onoremap ip} :<c-u>normal!F}vi}<cr>
 
 " this makes the tab completion work more sensibly
 set  wildmode=longest,list
@@ -365,13 +369,4 @@ xnoremap <C-S-j> xp`[V`]
 xnoremap <C-S-l> >gv
 xnoremap <C-S-h> <gv
 
-
-
-
-
-
-
-
-
-
-
+set viminfo+="'"
