@@ -1,10 +1,18 @@
-source .bashrc
 
-##
-# Your previous /Users/aturvey/.bash_login file was backed up as /Users/aturvey/.bash_login.macports-saved_2015-07-01_at_21:17:06
-##
+# We're here because apparently this is a login shell. Run .bashrc only if it is interactive (fixes tmux new shell issues)
+if [ -n "$BASH_VERSION" -a -n "$PS1" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
 
-# MacPorts Installer addition on 2015-07-01_at_21:17:06: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
+# setup for homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+# silence the mac warning about ZSH being the new default
+export BASH_SILENCE_DEPRECATION_WARNING=1

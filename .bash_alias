@@ -13,13 +13,12 @@ alias llr='gls -lrt --color'
 alias llar='gls -lart --color'
 alias du='du -k'
 alias df='df -k'
-#function em() { xemacs 2>/dev/null "$@" & }
-alias where='echo $HOST'
 alias cp='cp -ip'
 alias cls='clear'
 alias mv='mv -i'
 alias pu='pushd'
 alias po='popd'
+alias ..='cd ..'
 
 ## a few mac specific helpers
 alias sha1sum='shasum -a 1'
@@ -28,8 +27,6 @@ alias md5sum='md5'
 
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias got='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias gitt='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # ranger
 alias rn='ranger'
