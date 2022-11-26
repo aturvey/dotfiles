@@ -14,7 +14,6 @@ alias llr='ls -lrt --color'
 alias llar='ls -lart --color'
 alias du='du -k'
 alias df='df -k'
-#function em() { xemacs 2>/dev/null "$@" & }
 alias where='echo $HOST'
 alias cp='cp -ip'
 alias cls='clear'
@@ -24,6 +23,9 @@ alias po='popd'
 alias kon='konsole'
 alias cds='virtuoso &'
 alias cd='cd -P'
+alias ..='cd ..'
+alias gpg='gpg --homedir /Homes/aturvey/.gnupg'
+alias gpg-agent='gpg-agent --homedir /Homes/aturvey/.gnupg'
 
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
