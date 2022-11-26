@@ -27,7 +27,7 @@ alias sha256sum='shasum -a 256'
 alias md5sum='md5'
 
 ## alias for managing dotfile configuration
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # ranger
 alias rn='ranger'
