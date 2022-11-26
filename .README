@@ -124,4 +124,3 @@ Sat Nov 12 16:10:21 2022
         the temp directory if all previously existing tracked files in $HOME are nondot lsexistant or backed up. If they are
         existing, then you need to manage diff between them and those that come in from repo. Once they are properly merged and
         commited then it's easy to manage going forward.
- 
