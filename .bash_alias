@@ -19,6 +19,7 @@ alias mv='mv -i'
 alias pu='pushd'
 alias po='popd'
 alias ..='cd ..'
+alias git='/opt/homebrew/bin/git'
 
 ## a few mac specific helpers
 alias sha1sum='shasum -a 1'

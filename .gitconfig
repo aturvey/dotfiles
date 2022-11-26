@@ -1,33 +1,41 @@
 [core]
-	editor = vim
-	excludesfile = /Users/aturvey/.gitignore_global
+    editor = vim
+    excludesfile = /Users/aturvey/.gitignore_global
 [push]
-	default = simple
+    default = simple
 [user]
-	name = Anthony Turvey
-	email = anthony.turvey@gmail.com
+    name = Anthony Turvey
+    email = anthony.turvey@gmail.com
+    signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDRMfx9bgLRpLx52YAkPMiKHWddPeIqc8vy76IQItW0/RtTm3CxTFNjspm2JKjbXAXs9FkP3EjHaMQES4i8O8urr3oJrcN5KufS/PYUxJkN/Wp5IRrqbaeXGzbdfpCaeIH3txn3B/5oavqF72gVTU/DWCzQy/Xfu9KkJgFPtTYaHVHiVeKCbn7hFhlbkPRsGbJ1l5MUcZkuAehQapjZX3TyA3Gul5p88RS0bokIFo4N1DJ5tpJk/z6osXXGzsI0/mupneuHGLiJEqpD0HQtq2QZqT/K7aY+eKY0HVBrlgDWw+m2RIwZiupSdldn27bkApconZNYVlb5LdoJovOe1DHfh8+WLCltuMUUkSGwipVRFP157zsDmqu5LEJ3F5nbkF2VV9PxfhpYNcQPJA1mJFlaxWdIQO0E3RR+JJLRMne2+1EP7Puj/YPRFbUiZSgiiOUYkdv6UaEXFTvvuj9OJwT0eAsSGjWNnwq0BqKRbboFvVahB2Jxy21yOufl2Y9V2Sc=
 [color]
-	ui = auto
+    ui = auto
 [pull]
-	default = simple
+    default = simple
 [alias]
-	stat = status -s
-	unstage = reset HEAD --
-	last = log -1 HEAD --stat
-	logp = log --pretty=oneline -n 25
-	logs = log --stat
-	logg = log --pretty=format:\" %h  %s\" --graph
-	br = branch
-	co = checkout
-	df = diff
-	dt = difftool
-	ls = ls-files
+    stat = status -s
+    unstage = reset HEAD --
+    last = log -1 HEAD --stat
+    logp = log --pretty=oneline -n 25
+    logs = log --stat
+    logg = log --pretty=format:\" %h  %s\" --graph
+    br = branch
+    co = checkout
+    cm = commit
+    df = diff
+    dt = difftool
+    ls = ls-files
 [diff]
-	tool = vimdiff
-	conflictstyle = diff3
+    tool = vimdiff
+    conflictstyle = diff3
 [merge]
-	conflictstyle = diff3
-	renormalize = true
-	tool = vimdiff
+    conflictstyle = diff3
+    renormalize = true
+    tool = vimdiff
 [mergetool]
-	prompt = false
+    prompt = false
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+    gpgsign = true
