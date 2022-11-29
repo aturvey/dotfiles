@@ -364,3 +364,6 @@ xnoremap <C-S-k> xkP`[V`]
 xnoremap <C-S-j> xp`[V`]
 xnoremap <C-S-l> >gv
 xnoremap <C-S-h> <gv
+
+" open visual selection (file) in a new tab
+nnoremap gf <C-w>gf
