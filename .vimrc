@@ -92,10 +92,9 @@ endif
 " the colorscheme.vim files are supposed to go into ~/.vim/colors
 set t_Co=256
 if has("macunix")
-    color aet_mac
+    color aet_colorscheme_mac
 else
-    color aet_colorscheme
-    " color aet_eizo
+    color aet_colorscheme_eizo
 endif
 
 set nowrap
@@ -337,7 +336,7 @@ let g:UltiSnipsSnippetsDir="/Users/aturvey/.vim/UltiSnips"
 " just disable this way of entering command window
 nnoremap q: :
 
-" insert a timestamp, name, header (whitespace is req'd after abbreviations)
+" insert a timestamp, name, header (note: whitespace is req'd after abbreviations)
 noremap <F7> "=strftime("%c")<CR>P
 inoreabbrev idate <C-r>=strftime("%c")<CR>
 inoreabbrev iname Anthony Turvey
@@ -368,5 +367,8 @@ xnoremap <C-S-k> xkP`[V`]
 xnoremap <C-S-j> xp`[V`]
 xnoremap <C-S-l> >gv
 xnoremap <C-S-h> <gv
+
+" open visual selection (file) in a new tab
+nnoremap gf <C-w>gf
 
 set viminfo+="'"
