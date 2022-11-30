@@ -92,10 +92,9 @@ endif
 " the colorscheme.vim files are supposed to go into ~/.vim/colors
 set t_Co=256
 if has("macunix")
-    color aet_mac
+    color aet_colorscheme_mac
 else
     color aet_colorscheme_eizo
-    " color aet_eizo
 endif
 
 set nowrap
@@ -215,6 +214,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " from Learning Vimscript: operate in next or previous inner parens, braces, etc
 onoremap in( :<c-u>normal!f(vi(<cr>
 onoremap ip( :<c-u>normal!F)vi(<cr>
+onoremap in[ :<c-u>normal!f[vi[<cr>
+onoremap ip] :<c-u>normal!F]vi]<cr>
+onoremap in{ :<c-u>normal!f{vi{<cr>
+onoremap ip} :<c-u>normal!F}vi}<cr>
 
 " this makes the tab completion work more sensibly
 set  wildmode=longest,list
@@ -364,3 +367,8 @@ xnoremap <C-S-k> xkP`[V`]
 xnoremap <C-S-j> xp`[V`]
 xnoremap <C-S-l> >gv
 xnoremap <C-S-h> <gv
+
+" open visual selection (file) in a new tab
+nnoremap gf <C-w>gf
+
+set viminfo+="'"
