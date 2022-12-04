@@ -191,8 +191,6 @@ let g:tmux_navigator_disable_when_zoomed = 1
 
 " some tab navigation mappings, from https://goo.gl/e2Stn3
 " note: these are not working on macbook unless shortcuts are unmapped in settings
-   nnoremap H :tabprevious<CR>
-   nnoremap L :tabnext<CR>
    nnoremap <S-Left> :tabprevious<CR>
    nnoremap <S-Right> :tabnext<CR>
 "  nnoremap <silent> <S-Up> :execute 'silent! tabmove +1'<CR>
@@ -218,6 +216,8 @@ onoremap in[ :<c-u>normal!f[vi[<cr>
 onoremap ip] :<c-u>normal!F]vi]<cr>
 onoremap in{ :<c-u>normal!f{vi{<cr>
 onoremap ip} :<c-u>normal!F}vi}<cr>
+onoremap in< :<c-u>normal!f<vi<<cr>
+onoremap ip> :<c-u>normal!F<vi<<cr>
 
 " this makes the tab completion work more sensibly
 set  wildmode=longest,list
@@ -251,7 +251,7 @@ set confirm
 
 " new ex command for toggling hex mode - and define key map (see .vim/autoload/functions.vim)
 command! -bar Hexmode call functions#ToggleHex()
-nnoremap <c-x> :Hexmode<CR>
+" nnoremap <c-x> :Hexmode<CR>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -372,3 +372,7 @@ xnoremap <C-S-h> <gv
 nnoremap gf <C-w>gf
 
 set viminfo+="'"
+
+" H and L for beginning and end of line
+nnoremap H ^
+nnoremap L $
