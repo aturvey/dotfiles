@@ -371,8 +371,6 @@ xnoremap <C-S-h> <gv
 " open visual selection (file) in a new tab
 nnoremap gf <C-w>gf
 
-set viminfo+="'"
-
 " H and L for beginning and end of line
 nnoremap H ^
 nnoremap L $

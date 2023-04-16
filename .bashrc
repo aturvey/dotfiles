@@ -5,7 +5,9 @@
 # export TASMOPTS='-t80 -g0 -f00 -o16'
 export GNUPGHOME=/Users/aturvey/.gnupg
 export EDITOR=vim
-export PATH="/opt/gcc-arm-none-eabi/bin:/Users/aturvey/bin:$PATH"
+if [[ -z $TMUX ]]; then
+    export PATH="/opt/gcc-arm-none-eabi/bin:/Users/aturvey/bin:$PATH"
+fi
 # export TERM='xterm-256color'
 
 ##  Some alias and function definitions
