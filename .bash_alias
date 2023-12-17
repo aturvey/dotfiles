@@ -31,3 +31,5 @@ alias gpg-agent='gpg-agent --homedir /Homes/aturvey/.gnupg'
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+## direct to virtuoso
+alias cds='virtuoso'

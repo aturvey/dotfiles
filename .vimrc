@@ -15,6 +15,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'gmarik/Vundle.vim'     " this is required
+    Plugin 'christoomey/vim-tmux-navigator'
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
     " Plugin 'ctrlpvim/ctrlp.vim'
@@ -157,6 +158,7 @@ nnoremap _ -
 nnoremap = >
 " vertical window size decrease
 nnoremap - <
+<<<<<<< Updated upstream
 "   nnoremap <leader>wc <c-w>c
 "   nnoremap <leader>wo <c-w>o
 "   nnoremap <leader>wx <c-w>x
@@ -164,6 +166,58 @@ nnoremap - <
 "   nnoremap <leader>ws <c-w>s
 "   nnoremap <leader>wv <c-w>v
 "   nnoremap <leader>wT <c-w>T
+||||||| Stash base
+" nnoremap <leader>wc <c-w>c
+" nnoremap <leader>wo <c-w>o
+" nnoremap <leader>wx <c-w>x
+" nnoremap <leader>wp <c-w>p
+" nnoremap <leader>ws <c-w>s
+" nnoremap <leader>wv <c-w>v
+" nnoremap <leader>wT <c-w>T
+map <silent> <C-h> :call functions#WinMove('h')<cr>
+map <silent> <C-j> :call functions#WinMove('j')<cr>
+map <silent> <C-k> :call functions#WinMove('k')<cr>
+map <silent> <C-l> :call functions#WinMove('l')<cr>
+" map <silent> ˙ :call functions#WinMove('h')<cr>
+" map <silent> ∆ :call functions#WinMove('j')<cr>
+" map <silent> ˚ :call functions#WinMove('k')<cr>
+" map <silent> ¬ :call functions#WinMove('l')<cr>
+" " changes a vertical split to a horizontal split
+" nnoremap <leader>w- <c-w>t<c-w>K
+" changes a horizontal split to a vertical split
+" nnoremap <leader>w\ <c-w>t<c-w>H
+"nnoremap <leader>w| <c-w>t<c-w>H
+" nnoremap <leader>w/ <c-w>t<c-w>H
+=======
+
+noremap <silent> <c-h> :<C-U>TmuxNavigateRight<cr>
+noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
+noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
+noremap <silent> <c-l> :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> <c-/> :<C-U>TmuxNavigatePrevious<cr>
+
+" nnoremap <leader>wc <c-w>c
+" nnoremap <leader>wo <c-w>o
+" nnoremap <leader>wx <c-w>x
+" nnoremap <leader>wp <c-w>p
+" nnoremap <leader>ws <c-w>s
+" nnoremap <leader>wv <c-w>v
+" nnoremap <leader>wT <c-w>T
+" map <silent> <C-h> :call functions#WinMove('h')<cr>
+" map <silent> <C-j> :call functions#WinMove('j')<cr>
+" map <silent> <C-k> :call functions#WinMove('k')<cr>
+" map <silent> <C-l> :call functions#WinMove('l')<cr>
+" map <silent> ˙ :call functions#WinMove('h')<cr>
+" map <silent> ∆ :call functions#WinMove('j')<cr>
+" map <silent> ˚ :call functions#WinMove('k')<cr>
+" map <silent> ¬ :call functions#WinMove('l')<cr>
+" " changes a vertical split to a horizontal split
+" nnoremap <leader>w- <c-w>t<c-w>K
+" changes a horizontal split to a vertical split
+" nnoremap <leader>w\ <c-w>t<c-w>H
+"nnoremap <leader>w| <c-w>t<c-w>H
+" nnoremap <leader>w/ <c-w>t<c-w>H
+>>>>>>> Stashed changes
 
 " scroll the viewport with cursor
 nnoremap <C-e> 1<C-e>
