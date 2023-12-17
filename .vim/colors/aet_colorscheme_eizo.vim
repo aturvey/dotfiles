@@ -74,15 +74,7 @@ highlight Statement                 guifg=#9e9e9e ctermfg=247  gui=NONE cterm=NO
 highlight String                    guifg=#d7af5f ctermfg=179
 highlight Title                     guifg=#FFFFFF ctermfg=15
 highlight Type                      guifg=#FFFFFF ctermfg=15  gui=NONE cterm=NONE
-<<<<<<< Updated upstream:.vim/colors/aet_colorscheme_eizo.vim
-highlight Visual                    guibg=#880000 ctermfg=none ctermbg=52
-||||||| Stash base:.vim/colors/aet_colorscheme.vim
 " highlight Visual                    guibg=#880000 ctermbg=88
-highlight Visual                    guibg=#880000 ctermfg=none ctermbg=237
-=======
-" highlight Visual                    guibg=#880000 ctermbg=88
-highlight Visual                    guibg=#880000 ctermfg=1 ctermbg=237
->>>>>>> Stashed changes:.vim/colors/aet_colorscheme.vim
 
 highlight DiffAdd                   guifg=#E6E1DC ctermfg=7    guibg=#519F50 ctermbg=71
 highlight DiffDelete                guifg=#E6E1DC ctermfg=7    guibg=#660000 ctermbg=52

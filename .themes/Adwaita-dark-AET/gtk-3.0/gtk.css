@@ -1,0 +1,13 @@
+@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
+
+
+decoration {
+    border-width: 1px;
+    border: 1px solid gray;
+    background: gray;
+}
+
+TerminalWindow > .paned:first-child {
+    border: 1px solid #111111 !important;
+    background: gray;
+}

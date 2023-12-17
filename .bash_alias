@@ -22,7 +22,7 @@ alias cls='clear'
 alias mv='mv -i'
 alias pu='pushd'
 alias po='popd'
-alias kon='konsole'
+alias kon='(konsole &>/dev/null &)'
 alias cd='cd -P'
 alias ..='cd ..'
 alias gpg='gpg --homedir /Homes/aturvey/.gnupg'
@@ -31,5 +31,3 @@ alias gpg-agent='gpg-agent --homedir /Homes/aturvey/.gnupg'
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-## direct to virtuoso
-alias cds='virtuoso'

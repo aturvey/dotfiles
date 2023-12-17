@@ -16,7 +16,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'gmarik/Vundle.vim'     " this is required
     Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'tpope/vim-fugitive'
+    " Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
     " Plugin 'ctrlpvim/ctrlp.vim'
     " Plugin 'tacahiroy/ctrlp-funky'
@@ -26,7 +26,6 @@ call vundle#begin()
     " Plugin 'justinmk/vim-sneak'
     " Plugin 'sjl/gundo.vim'
     " Plugin 'sirver/ultisnips'
-    Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 
@@ -158,15 +157,6 @@ nnoremap _ -
 nnoremap = >
 " vertical window size decrease
 nnoremap - <
-<<<<<<< Updated upstream
-"   nnoremap <leader>wc <c-w>c
-"   nnoremap <leader>wo <c-w>o
-"   nnoremap <leader>wx <c-w>x
-"   nnoremap <leader>wp <c-w>p
-"   nnoremap <leader>ws <c-w>s
-"   nnoremap <leader>wv <c-w>v
-"   nnoremap <leader>wT <c-w>T
-||||||| Stash base
 " nnoremap <leader>wc <c-w>c
 " nnoremap <leader>wo <c-w>o
 " nnoremap <leader>wx <c-w>x
@@ -188,7 +178,6 @@ map <silent> <C-l> :call functions#WinMove('l')<cr>
 " nnoremap <leader>w\ <c-w>t<c-w>H
 "nnoremap <leader>w| <c-w>t<c-w>H
 " nnoremap <leader>w/ <c-w>t<c-w>H
-=======
 
 noremap <silent> <c-h> :<C-U>TmuxNavigateRight<cr>
 noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
@@ -215,9 +204,8 @@ noremap <silent> <c-/> :<C-U>TmuxNavigatePrevious<cr>
 " nnoremap <leader>w- <c-w>t<c-w>K
 " changes a horizontal split to a vertical split
 " nnoremap <leader>w\ <c-w>t<c-w>H
-"nnoremap <leader>w| <c-w>t<c-w>H
+" nnoremap <leader>w| <c-w>t<c-w>H
 " nnoremap <leader>w/ <c-w>t<c-w>H
->>>>>>> Stashed changes
 
 " scroll the viewport with cursor
 nnoremap <C-e> 1<C-e>
