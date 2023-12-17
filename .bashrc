@@ -38,7 +38,7 @@ if [ ${TERM} != "dumb" ]; then
   PS2='\[\e[01;33m\]> \[\e[0m\]'
 
   ## evaluate the dircolors for ls
-  # eval $(gdircolors ~/.dircolors)
+  eval $(dircolors ~/.dircolors)
 
   ## invoke the ssh-agent
   # eval $(ssh-agent)
