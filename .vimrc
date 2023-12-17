@@ -1,5 +1,8 @@
 version 6.0
-" Sat Nov 12 13:41:09 2022
+" Sat Dec 16 20:29:09 2023
+
+set nocompatible
+filetype off
 
 " set up plugins using Vundle
 " get help with :h vundle
@@ -8,22 +11,20 @@ version 6.0
 "   :PluginUpdate
 "   :PluginSearch
 "   :PluginClean
-set nocompatible
-filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'gmarik/Vundle.vim'     " this is required
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
-    Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'tacahiroy/ctrlp-funky'
+    " Plugin 'ctrlpvim/ctrlp.vim'
+    " Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'scrooloose/nerdtree'
     Plugin 'benmills/vimux'
     Plugin 'tomtom/tcomment_vim'
-    Plugin 'justinmk/vim-sneak'
-    Plugin 'sjl/gundo.vim'
-    Plugin 'sirver/ultisnips'
+    " Plugin 'justinmk/vim-sneak'
+    " Plugin 'sjl/gundo.vim'
+    " Plugin 'sirver/ultisnips'
     Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
