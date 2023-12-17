@@ -27,6 +27,7 @@ alias cd='cd -P'
 alias ..='cd ..'
 alias gpg='gpg --homedir /Homes/aturvey/.gnupg'
 alias gpg-agent='gpg-agent --homedir /Homes/aturvey/.gnupg'
+alias mod='module'
 
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
