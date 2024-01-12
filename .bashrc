@@ -21,7 +21,6 @@ set -o notify
 ##  Turn off ctrl-D logoff
 set -o ignoreeof
 
-
 if [ ${TERM} != "dumb" ]; then
   ## Set the prompt to something useful
   # 01;31m is red

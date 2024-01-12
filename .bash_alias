@@ -6,12 +6,12 @@
 #
 
 ##  Session alias statements 
-alias ls='ls --color'
-alias la='ls -a --color'
-alias ll='ls -l --color'
-alias lla='ls -la --color'
-alias llr='ls -lrt --color'
-alias llar='ls -lart --color'
+alias ls='ls -h --color'
+alias la='ls -ah --color'
+alias ll='ls -lh --color'
+alias lla='ls -lha --color'
+alias llr='ls -lhrt --color'
+alias llar='ls -lhart --color'
 alias du='du -h'
 alias df='df -h'
 alias ff='(firefox &>/dev/null &)'
@@ -27,7 +27,6 @@ alias cd='cd -P'
 alias ..='cd ..'
 alias gpg='gpg --homedir /Homes/aturvey/.gnupg'
 alias gpg-agent='gpg-agent --homedir /Homes/aturvey/.gnupg'
-alias mod='module'
 
 ## alias for managing dotfile configuration
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
